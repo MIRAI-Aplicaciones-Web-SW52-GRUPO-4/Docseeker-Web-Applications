@@ -24,10 +24,10 @@ const app = createApp(App)
 app.use(createPinia())
 
 app.use(PrimeVue, { ripple: true });
-app.component("Button", Button);
-app.component("InputText", InputText);
-app.component("Dropdown", Dropdown);
-app.component("Calendar", Calendar);
+app.component("pv-button", Button);
+app.component("pv-inputText", InputText);
+app.component("pv-dropdown", Dropdown);
+app.component("pv-calendar", Calendar);
 
 /* app.use(router) */
 
