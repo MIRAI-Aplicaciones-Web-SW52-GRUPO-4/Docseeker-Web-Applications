@@ -67,7 +67,7 @@
       </div>
     </div>
     <div class="buttonContainer">
-      <pv-button label="Register" class="p-button-lg"></pv-button>
+      <router-link to="/"> <pv-button label="Register" class="p-button-lg"></pv-button> </router-link>
     </div>
 
 
@@ -115,7 +115,6 @@ h3{
 }
 .p-button{
   background-color: #0093AB;
-  width: 10%;
 }
 .buttonContainer{
   display: flex;

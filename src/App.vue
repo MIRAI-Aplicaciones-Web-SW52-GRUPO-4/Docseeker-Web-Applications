@@ -1,12 +1,13 @@
 <script setup>
 import { RouterLink, RouterView } from 'vue-router'
-import Register from "./components/Register.vue"
+import RegisterView from './views/RegisterView.vue'
+
 
 </script>
 
 <template>
-  <Register/>
-
+  <h2>Toolbar</h2>
+  <RegisterView/>
 </template>
 
 <style scoped>

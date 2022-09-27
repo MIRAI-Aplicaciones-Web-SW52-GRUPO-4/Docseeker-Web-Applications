@@ -10,8 +10,7 @@ import InputText from 'primevue/inputtext';
 import Dropdown from 'primevue/dropdown';
 import Calendar from 'primevue/calendar';
 
-
-/* import router from './router' */
+//import router from './router'
 
 import './assets/main.css'
 import "primevue/resources/themes/md-light-indigo/theme.css";
@@ -29,6 +28,6 @@ app.component("pv-inputText", InputText);
 app.component("pv-dropdown", Dropdown);
 app.component("pv-calendar", Calendar);
 
-/* app.use(router) */
+//app.use(router)
 
 app.mount('#app')
