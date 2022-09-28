@@ -11,8 +11,7 @@ import Dropdown from 'primevue/dropdown';
 import Calendar from 'primevue/calendar';
 import Card from 'primevue/card';
 
-
-/* import router from './router' */
+//import router from './router'
 
 import './assets/main.css'
 import "primevue/resources/themes/md-light-indigo/theme.css";
@@ -34,6 +33,6 @@ app.component("pv-card", Card);
 
 
 
-/* app.use(router) */
+//app.use(router)
 
 app.mount('#app')
