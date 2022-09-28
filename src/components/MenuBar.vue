@@ -53,8 +53,12 @@
 
 <script>
 export default {
-  name: "MenuBar",
+  data(){
+    return{
+      visibleLeft: true
 
+    }
+  },
   props: {
     value:{
       type: Boolean,
