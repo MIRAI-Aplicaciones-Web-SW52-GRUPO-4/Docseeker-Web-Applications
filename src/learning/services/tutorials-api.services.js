@@ -7,23 +7,20 @@ const http = axios.create({
     headers: { 'Content-type': 'application/json' }
 });
 
-export class TutorialsApiService {
+export class UsersApiService {
     getAll() {
-        return http.get('/tutorials');
+        return http.get('/users');
     }
     getById(id) {
-        return http.get(`/tutorials/${id}`);
+        return http.get(`/users/${id}`);
     }
     create(data) {
-        return http.post('/tutorials', data);
+        return http.post('/users', data);
     }
     update(id, data) {
-        return http.put(`/tutorials/${id}`, data);
+        return http.put(`/users/${id}`, data);
     }
     delete(id) {
-        return http.delete(`/tutorials/${id}`);
-    }
-    findByTitle(title) {
-        return http.get(`/tutorials?title=${title}`);
+        return http.delete(`/users/${id}`);
     }
 }

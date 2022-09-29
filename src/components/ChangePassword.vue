@@ -27,38 +27,47 @@
     </div>
 
     <div id="submitBtnContainer">
-      <pv-button label="Submit" id="submitBtn" class="p-button-lg" @click="createTutorial()"/>
+      <pv-button label="Submit" id="submitBtn" class="p-button-lg" @click="createUser()"/>
     </div>
   </div>
 </template>
 
 <script>
-import {TutorialsApiService} from "@/learning/services/tutorials-api.services";
+import { UsersApiService } from "@/learning/services/tutorials-api.services";
 
 export default {
   name: "ChangePassword.vue",
 
   data() {
     return {
-      tutorialsApi: new TutorialsApiService(),
+      UsersApi: new UsersApiService(),
+      usersArraySize: 0,
       email: null,
       password: null
     }
   },
   methods: {
-    getInputData() {
-      let newTut = {
-        id: 9,
-        title: this.email,
-        description: this.password,
-        published: false
-      }
+    getDataFromInputFields() {
+      this.usersArraySize += 1;
 
-      return JSON.stringify(newTut);
+      let newUser = {
+        id: this.usersArraySize,
+        DNI: "23710424",
+        name: "Andre",
+        paternalName: "Alzamora",
+        maternalName: "Benavides",
+        genre: "Male",
+        birthday: "14/13/23",
+        email: this.email,
+        cellphone1: "995223112",
+        cellphone2: "912364712",
+        password: this.password
+      }
+      return JSON.stringify(newUser);
     },
-    createTutorial() {
-      let newTutorial = this.getInputData();
-      this.tutorialsApi.create(newTutorial);
+    createUser() {
+      let newUser = this.getDataFromInputFields();
+      this.UsersApi.create(newUser);
     }
   }
 }
