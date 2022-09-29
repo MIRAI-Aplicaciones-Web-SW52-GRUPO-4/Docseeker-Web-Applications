@@ -2,11 +2,13 @@
 import { RouterLink, RouterView } from 'vue-router'
 import RegisterView from './views/RegisterView.vue'
 import ChangePassword from "./components/ChangePassword.vue";
+import Toolbar from "@/components/Toolbar.vue";
+
 </script>
 
 <template>
-  <h2>Toolbar</h2>
-  <RegisterView/>
+  <Toolbar></Toolbar>
+
 </template>
 
 <style scoped>
