@@ -13,6 +13,7 @@ import Sidebar from'primevue/sidebar';
 import InputSwitch from 'primevue/inputswitch';
 import Card from "primevue/card";
 
+import Carousel from 'primevue/carousel';
 /* import router from './router' */
 
 import './assets/main.css'
@@ -34,6 +35,8 @@ app.component( "pv-sidebar", Sidebar);
 app.component("pv-switch", InputSwitch);
 app.component("pv-card",Card);
 
+app.component("pv-switch", InputSwitch);
+app.component("pv-carousel", Carousel);
 /* app.use(router) */
 
 app.mount('#app')

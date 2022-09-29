@@ -6,6 +6,9 @@ import Toolbar from "@/components/Toolbar.vue";
 import Welcome from "@/components/Welcome.vue";
 
 import SearchDoctorView from "./views/SearchDoctorView.vue"
+import Carousel from './components/Carousel.vue';
+import CarouselProyected from "./components/CarouselProyected.vue";
+
 </script>
 
 <template>

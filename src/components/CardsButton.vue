@@ -1,35 +1,35 @@
 <template>
   <div class="cards">
     <div class="card">
-      <img class="appointment_option" src="../assets/images/calendar.png">
+      <img class="appointment_option" src="../assets/images/menu-calendar.png">
       <div class="spacer"></div>
       <div class="option_name">
         <a>Make an<br>Appointment</a>
       </div>
     </div>
     <div class="card">
-      <img class="appointment_option" src="../assets/images/doctor.png">
+      <img class="appointment_option" src="../assets/images/menu-doctor.png">
       <div class="spacer"></div>
       <div class="option_name">
         <a>Doctors</a>
       </div>
     </div>
     <div class="card">
-      <img class="appointment_option" src="../assets/images/medic.png">
+      <img class="appointment_option" src="../assets/images/menu-medic.png">
       <div class="spacer"></div>
       <div class="option_name">
         <a>Medical<br>History</a>
       </div>
     </div>
     <div class="card">
-      <img class="appointment_option" src="../assets/images/prescription.png">
+      <img class="appointment_option" src="../assets/images/menu-prescription.png">
       <div class="spacer"></div>
       <div class="option_name">
         <a>Prescription</a>
       </div>
     </div>
     <div class="card">
-      <img class="appointment_option" src="../assets/images/consultancy.png">
+      <img class="appointment_option" src="../assets/images/menu-consultancy.png">
       <div class="spacer"></div>
       <div class="option_name">
         <a>Consultancy</a>
