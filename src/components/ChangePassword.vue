@@ -8,14 +8,14 @@
         <span id="inputTextIcon" class="p-inputgroup-addon inputTextBorder">
           <i class="pi pi-user"></i>
         </span>
-        <pv-inputText id="email" class="inputTextBorder" placeholder="Email"></pv-inputText>
+        <pv-inputText id="email" class="inputTextBorder" placeholder="Email" v-model="email"></pv-inputText>
       </div>
     </div>
 
     <div id="enterPassword">
       <h3>Enter your password: </h3>
       <div class="p-inputgroup" id="enterPasswordInputContainer">
-        <pv-inputText id="password" type="password" class="inputTextBorder" placeholder="Password"></pv-inputText>
+        <pv-inputText id="password" type="password" class="inputTextBorder" placeholder="Password" v-model="password"></pv-inputText>
       </div>
     </div>
 
@@ -27,14 +27,49 @@
     </div>
 
     <div id="submitBtnContainer">
-      <pv-button label="Submit" id="submitBtn" class="p-button-lg"/>
+      <pv-button label="Submit" id="submitBtn" class="p-button-lg" @click="createUser()"/>
     </div>
   </div>
 </template>
 
 <script>
+import { UsersApiService } from "@/learning/services/tutorials-api.services";
+
 export default {
-  name: "ChangePassword.vue"
+  name: "ChangePassword.vue",
+
+  data() {
+    return {
+      UsersApi: new UsersApiService(),
+      usersArraySize: 0,
+      email: null,
+      password: null
+    }
+  },
+  methods: {
+    getDataFromInputFields() {
+      this.usersArraySize += 1;
+
+      let newUser = {
+        id: this.usersArraySize,
+        DNI: "23710424",
+        name: "Andre",
+        paternalName: "Alzamora",
+        maternalName: "Benavides",
+        genre: "Male",
+        birthday: "14/13/23",
+        email: this.email,
+        cellphone1: "995223112",
+        cellphone2: "912364712",
+        password: this.password
+      }
+      return JSON.stringify(newUser);
+    },
+    createUser() {
+      let newUser = this.getDataFromInputFields();
+      this.UsersApi.create(newUser);
+    }
+  }
 }
 </script>
 
