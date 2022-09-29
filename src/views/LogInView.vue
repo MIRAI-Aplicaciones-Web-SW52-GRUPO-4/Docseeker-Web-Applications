@@ -25,7 +25,7 @@ import LogInCard from '../components/LogInCard.vue'
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
+  margin-top: 4rem;
 }
 .images-Welcome{
   width: 700px;
