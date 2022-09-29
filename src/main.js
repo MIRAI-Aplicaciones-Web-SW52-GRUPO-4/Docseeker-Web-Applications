@@ -11,6 +11,7 @@ import Dropdown from 'primevue/dropdown';
 import Calendar from 'primevue/calendar';
 import Sidebar from'primevue/sidebar';
 import InputSwitch from 'primevue/inputswitch';
+import Card from "primevue/card";
 
 /* import router from './router' */
 
@@ -31,7 +32,8 @@ app.component("InputText", InputText);
 app.component("Dropdown", Dropdown);
 app.component("Calendar", Calendar);
 app.component( "pv-sidebar", Sidebar);
-app.component("pv-switch", InputSwitch)
+app.component("pv-switch", InputSwitch);
+app.component("pv-card",Card);
 
 /* app.use(router) */
 
