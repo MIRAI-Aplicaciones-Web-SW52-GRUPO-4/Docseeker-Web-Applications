@@ -8,14 +8,14 @@
         <span id="inputTextIcon" class="p-inputgroup-addon inputTextBorder">
           <i class="pi pi-user"></i>
         </span>
-        <pv-inputText id="email" class="inputTextBorder" placeholder="Email"></pv-inputText>
+        <pv-inputText id="email" class="inputTextBorder" placeholder="Email" v-model="email"></pv-inputText>
       </div>
     </div>
 
     <div id="enterPassword">
       <h3>Enter your password: </h3>
       <div class="p-inputgroup" id="enterPasswordInputContainer">
-        <pv-inputText id="password" type="password" class="inputTextBorder" placeholder="Password"></pv-inputText>
+        <pv-inputText id="password" type="password" class="inputTextBorder" placeholder="Password" v-model="password"></pv-inputText>
       </div>
     </div>
 
@@ -27,14 +27,40 @@
     </div>
 
     <div id="submitBtnContainer">
-      <pv-button label="Submit" id="submitBtn" class="p-button-lg"/>
+      <pv-button label="Submit" id="submitBtn" class="p-button-lg" @click="createTutorial()"/>
     </div>
   </div>
 </template>
 
 <script>
+import {TutorialsApiService} from "@/learning/services/tutorials-api.services";
+
 export default {
-  name: "ChangePassword.vue"
+  name: "ChangePassword.vue",
+
+  data() {
+    return {
+      tutorialsApi: new TutorialsApiService(),
+      email: null,
+      password: null
+    }
+  },
+  methods: {
+    getInputData() {
+      let newTut = {
+        id: 9,
+        title: this.email,
+        description: this.password,
+        published: false
+      }
+
+      return JSON.stringify(newTut);
+    },
+    createTutorial() {
+      let newTutorial = this.getInputData();
+      this.tutorialsApi.create(newTutorial);
+    }
+  }
 }
 </script>
 
