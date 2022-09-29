@@ -27,7 +27,7 @@
     </div>
 
     <div id="submitBtnContainer">
-      <pv-button label="Submit" id="submitBtn" class="p-button-lg" @click="createUser()"/>
+      <router-link to="logIn"><pv-button label="Submit" id="submitBtn" class="p-button-lg" @click="createUser()"/></router-link>
     </div>
   </div>
 </template>

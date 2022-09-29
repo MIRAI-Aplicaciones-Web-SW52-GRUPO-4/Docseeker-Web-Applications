@@ -7,11 +7,13 @@
       <div class="pictures">
 
         <div class="picture">
-          <pv-card-content class="welcomeImgCard ">
-            <img src="../assets/images/doctorTakeCareOfAPatient.png"
-                 alt="doctor take care of a patient" class="images-Welcome">
-            <h1 style="text-align:center">Patient </h1>
-          </pv-card-content>
+          <router-link to="/logIn">
+            <pv-card-content class="welcomeImgCard ">
+              <img src="../assets/images/doctorTakeCareOfAPatient.png"
+                   alt="doctor take care of a patient" class="images-Welcome">
+              <h1 style="text-align:center">Patient </h1>
+            </pv-card-content>
+          </router-link>
         </div>
 
         <div class="picture">
@@ -47,11 +49,10 @@ export default {
   /*align-items: center;*/
   padding: 7% 0;
   align-content: center;
-  width: 100vw;
 }
 
 .images-Welcome{
-  width: 40vw;
+  width: 30vw;
 }
 
 .welcomeImgCard {
@@ -61,6 +62,7 @@ export default {
 .pictures{
   display:flex;
   flex-direction: row;
+  justify-content: center;
 }
 
 .picture{

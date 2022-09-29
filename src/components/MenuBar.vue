@@ -17,7 +17,7 @@
           <router-link to="" class="link"><i class="pi pi-file"></i> <h2>Prescription</h2> </router-link>
           <router-link to="" class="link"><i class="pi pi-cog"></i> <h2>Configuration</h2> </router-link>
         </div>
-        <router-link class="link logout"> <i class="pi pi-sign-out"></i> <h3>Log out</h3> </router-link>
+        <router-link to="/" class="link logout"> <i class="pi pi-sign-out"></i> <h3>Log out</h3> </router-link>
       </div>
 
 

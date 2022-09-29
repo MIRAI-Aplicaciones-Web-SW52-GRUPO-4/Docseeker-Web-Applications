@@ -1,40 +1,50 @@
 <template>
   <div class="cards">
-    <div class="card">
-      <img class="appointment_option" src="../assets/images/menu-calendar.png">
-      <div class="spacer"></div>
-      <div class="option_name">
-        <a>Make an<br>Appointment</a>
+    <router-link to="">
+      <div class="card">
+        <img class="appointment_option" src="../assets/images/menu-calendar.png">
+        <div class="spacer"></div>
+        <div class="option_name">
+          <a>Make an<br>Appointment</a>
+        </div>
       </div>
-    </div>
-    <div class="card">
-      <img class="appointment_option" src="../assets/images/menu-doctor.png">
-      <div class="spacer"></div>
-      <div class="option_name">
-        <a>Doctors</a>
+    </router-link>
+    <router-link to="searchDoctor">
+      <div class="card">
+        <img class="appointment_option" src="../assets/images/menu-doctor.png">
+        <div class="spacer"></div>
+        <div class="option_name">
+          <a>Doctors</a>
+        </div>
       </div>
-    </div>
-    <div class="card">
-      <img class="appointment_option" src="../assets/images/menu-medic.png">
-      <div class="spacer"></div>
-      <div class="option_name">
-        <a>Medical<br>History</a>
+    </router-link>
+    <router-link to="">
+      <div class="card">
+        <img class="appointment_option" src="../assets/images/menu-medic.png">
+        <div class="spacer"></div>
+        <div class="option_name">
+          <a>Medical<br>History</a>
+        </div>
       </div>
-    </div>
-    <div class="card">
-      <img class="appointment_option" src="../assets/images/menu-prescription.png">
-      <div class="spacer"></div>
-      <div class="option_name">
-        <a>Prescription</a>
+    </router-link>
+    <router-link to="">
+      <div class="card">
+        <img class="appointment_option" src="../assets/images/menu-prescription.png">
+        <div class="spacer"></div>
+        <div class="option_name">
+          <a>Prescription</a>
+        </div>
       </div>
-    </div>
-    <div class="card">
-      <img class="appointment_option" src="../assets/images/menu-consultancy.png">
-      <div class="spacer"></div>
-      <div class="option_name">
-        <a>Consultancy</a>
+    </router-link>
+    <router-link to="">
+      <div class="card">
+        <img class="appointment_option" src="../assets/images/menu-consultancy.png">
+        <div class="spacer"></div>
+        <div class="option_name">
+          <a>Consultancy</a>
+        </div>
       </div>
-    </div>
+    </router-link>
   </div>
 </template>
 
@@ -52,6 +62,7 @@ export default {
   align-items: center;
   align-content: center;
   align-self: center;
+  justify-content: space-evenly;
 
 }
 
@@ -69,20 +80,19 @@ export default {
   padding: 10px;
   height: 140px;
   margin: 0 auto;
+  transition: 0.4s;
+
 }
 .card:hover {
-  background-color: #FF2831;
+  background-color: #FD5D5D;
   cursor: pointer;
-
 }
 
 .card img {
   width: 70px;
-
 }
 
 .card .option_name a {
-  font-family: Inter;
   color: white;
   display: table-cell;
   vertical-align: middle;

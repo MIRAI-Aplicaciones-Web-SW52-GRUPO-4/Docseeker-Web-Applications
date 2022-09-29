@@ -1,20 +1,16 @@
 <script setup>
 import { RouterLink, RouterView } from 'vue-router'
-import RegisterView from './views/RegisterView.vue'
-import ChangePassword from "./components/ChangePassword.vue";
-import Toolbar from "@/components/Toolbar.vue";
-import Welcome from "@/components/Welcome.vue";
 
-import SearchDoctorView from "./views/SearchDoctorView.vue"
-import Carousel from './components/Carousel.vue';
-import CarouselProyected from "./components/CarouselProyected.vue";
+import Toolbar from './components/Toolbar.vue';
 
 </script>
 
 <template>
+  <Toolbar/>
   <div class="container">
-    <SearchDoctorView/>
+    <RouterView></RouterView>
   </div>
+
 </template>
 
 <style scoped>

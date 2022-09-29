@@ -39,48 +39,47 @@ export default {
 </script>
 
 <style scoped>
-  .doctor{
-    border:solid 1px black;
-    border-color: #0093AB;
-    border-radius: 20px;
-    display:flex;
-    flex-direction: row;
-    gap:3rem;
-    padding:2rem;
-    margin: 2rem;
-  }
-  .doctorImg{
-    width:150px;
-    height:150px;
-    border-radius: 20px;
-    border-color: #0093AB;
+.doctor{
+  border:solid 1px black;
+  border-color: #0093AB;
+  border-radius: 20px;
+  display:flex;
+  flex-direction: row;
+  gap:3rem;
+  padding:2rem;
+  margin: 2rem;
+}
+.doctorImg{
+  width:150px;
+  height:150px;
+  border-radius: 20px;
+  border-color: #0093AB;
 
-  }
-  .info{
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    aling-items:center;
-  }
-  .infoContainer{
-    display:flex;
-    flex-direction: row;
-    gap:4rem
-  }
-  .seeContainer{
-    display:flex;
-    flex-direction: row;
-    text-align: center;
-    justify-content: center;
-    align-items: center;
-    color: #0093AB;
-    border-bottom: 1px solid #0093AB;
-  }
-  .doctorName{
-    font-size:150%;
-    font-weight:bolder;
-  }
-  .h3{
-    color:blue;
-  }
+}
+.info{
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+}
+.infoContainer{
+  display:flex;
+  flex-direction: row;
+  gap:4rem
+}
+.seeContainer{
+  display:flex;
+  flex-direction: row;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  color: #0093AB;
+  border-bottom: 1px solid #0093AB;
+}
+.doctorName{
+  font-size:150%;
+  font-weight:bolder;
+}
+.h3{
+  color:blue;
+}
 </style>

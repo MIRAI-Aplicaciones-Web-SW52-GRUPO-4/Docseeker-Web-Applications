@@ -1,6 +1,6 @@
 <template>
   <div class="toolBar">
-    <img src="../assets/images/DocSeeker.png" alt="DocSeeker Logo" class="logo">
+    <router-link to="/"><img src="../assets/images/DocSeeker.png" alt="DocSeeker Logo" class="logo"></router-link>
   </div>
 </template>
 

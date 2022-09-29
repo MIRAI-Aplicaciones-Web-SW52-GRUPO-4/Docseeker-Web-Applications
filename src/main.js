@@ -13,14 +13,14 @@ import Sidebar from'primevue/sidebar';
 import InputSwitch from 'primevue/inputswitch';
 import Card from "primevue/card";
 
-import Carousel from 'primevue/carousel';
-/* import router from './router' */
+import router from './router'
 
 import './assets/main.css'
 import "primevue/resources/themes/md-light-indigo/theme.css";
 import "primevue/resources/primevue.min.css";
 import "primeicons/primeicons.css";
 import "primeflex/primeflex.css";
+import './components/MenuBar.vue';
 
 const app = createApp(App)
 
@@ -35,8 +35,6 @@ app.component( "pv-sidebar", Sidebar);
 app.component("pv-switch", InputSwitch);
 app.component("pv-card",Card);
 
-app.component("pv-switch", InputSwitch);
-app.component("pv-carousel", Carousel);
-/* app.use(router) */
+app.use(router)
 
 app.mount('#app')
