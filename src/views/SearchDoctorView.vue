@@ -1,7 +1,8 @@
 <template>
   <header>
     <div class="backButton">
-      <i class="pi pi-angle-left" style="font-size: 200%"></i>
+      <MenuBar></MenuBar>
+      <router-link to="/dashboard"><i class="pi pi-angle-left" style="font-size: 200%"></i></router-link>
       <h1>Doctors</h1>
     </div>
     <div class="p-inputgroup">
@@ -15,7 +16,6 @@
   <DoctorButton name="Celis"></DoctorButton>
   <DoctorButton></DoctorButton>
   <DoctorButton></DoctorButton>
-  <!-- <MenuBar></MenuBar> -->
 </template>
 
 <script setup>
@@ -24,7 +24,7 @@ import MenuBar from "../components/MenuBar.vue";
 </script>
 
 <script>
-  props: ["name", "area", "description", "value"]
+  props: ["name", "area", "description"]
 
 </script>
 <style scoped>
