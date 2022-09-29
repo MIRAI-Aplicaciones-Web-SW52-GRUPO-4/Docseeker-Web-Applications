@@ -11,7 +11,7 @@ import Dropdown from 'primevue/dropdown';
 import Calendar from 'primevue/calendar';
 import Sidebar from'primevue/sidebar';
 import InputSwitch from 'primevue/inputswitch';
-
+import Carousel from 'primevue/carousel';
 /* import router from './router' */
 
 import './assets/main.css'
@@ -31,8 +31,8 @@ app.component("InputText", InputText);
 app.component("Dropdown", Dropdown);
 app.component("Calendar", Calendar);
 app.component( "pv-sidebar", Sidebar);
-app.component("pv-switch", InputSwitch)
-
+app.component("pv-switch", InputSwitch);
+app.component("pv-carousel", Carousel);
 /* app.use(router) */
 
 app.mount('#app')
