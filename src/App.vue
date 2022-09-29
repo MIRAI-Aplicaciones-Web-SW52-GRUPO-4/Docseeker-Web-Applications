@@ -8,7 +8,6 @@ import Toolbar from "@/components/Toolbar.vue";
 
 <template>
   <Toolbar></Toolbar>
-
 </template>
 
 <style scoped>
