@@ -12,7 +12,7 @@
       <pv-inputText placeholder="Search Doctor" />
     </div>
   </header>
-  <DoctorButton name="Kendall" area="Dentista" description="Profesional"/>
+  <DoctorButton name="jose" area="Dentista" description="Profesional"/>
   <DoctorButton name="Celis"></DoctorButton>
   <DoctorButton></DoctorButton>
   <DoctorButton></DoctorButton>

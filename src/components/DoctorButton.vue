@@ -1,6 +1,6 @@
 <template>
   <div class="doctor">
-    <img src="../assets/images/{{ name }}image.jpg" alt="doctor image" class="doctorImg">
+    <img src="../assets/images/joseimage.jpg" alt="doctor image" class="doctorImg">
     <div class="info">
       <h3 class="doctorName">{{ name }}</h3>
       <div class="infoContainer">
