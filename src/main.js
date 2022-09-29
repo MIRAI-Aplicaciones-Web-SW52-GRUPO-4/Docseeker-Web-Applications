@@ -11,8 +11,9 @@ import Dropdown from 'primevue/dropdown';
 import Calendar from 'primevue/calendar';
 import Sidebar from'primevue/sidebar';
 import InputSwitch from 'primevue/inputswitch';
+import Card from "primevue/card";
 
-/* import router from './router' */
+import router from './router'
 
 import './assets/main.css'
 import "primevue/resources/themes/md-light-indigo/theme.css";
@@ -26,13 +27,14 @@ const app = createApp(App)
 app.use(createPinia())
 
 app.use(PrimeVue, { ripple: true });
-app.component("Button", Button);
-app.component("InputText", InputText);
-app.component("Dropdown", Dropdown);
-app.component("Calendar", Calendar);
+app.component("pv-button", Button);
+app.component("pv-inputText", InputText);
+app.component("pv-dropdown", Dropdown);
+app.component("pv-calendar", Calendar);
 app.component( "pv-sidebar", Sidebar);
-app.component("pv-switch", InputSwitch)
+app.component("pv-switch", InputSwitch);
+app.component("pv-card",Card);
 
-/* app.use(router) */
+app.use(router)
 
 app.mount('#app')

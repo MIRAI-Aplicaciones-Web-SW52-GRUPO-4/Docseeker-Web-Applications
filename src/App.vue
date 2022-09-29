@@ -7,7 +7,11 @@ import Toolbar from "@/components/Toolbar.vue";
 </script>
 
 <template>
-  <Toolbar></Toolbar>
+  <Toolbar/>
+  <div class="container">
+    <RouterView></RouterView>
+  </div>
+
 </template>
 
 <style scoped>

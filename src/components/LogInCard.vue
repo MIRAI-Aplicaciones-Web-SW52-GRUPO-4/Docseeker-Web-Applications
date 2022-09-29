@@ -19,7 +19,7 @@
         </div>
         <div class="lastPart">
           <br>
-          <pv-button class="buttonLogIn" label="Log In" /><br>
+          <router-link to="/dashBoard"><pv-button class="buttonLogIn" label="Log In" /></router-link><br>
           <router-link to="/changePassword" class="link">I forgot my password</router-link><br>
           <router-link to="/register" class="link">You do not have an account? \ Sign up</router-link>
         </div>
@@ -30,7 +30,6 @@
 
 <script>
 
-import Register from "./Register.vue"
 export default {
   name: "log-in-card.component"
 }
@@ -58,7 +57,6 @@ h3{
 .buttonLogIn{
   text-align: center;
   background-color: #0093AB;
-  margin-bottom: 20px;
 }
 .inputBox{
   width:95%;

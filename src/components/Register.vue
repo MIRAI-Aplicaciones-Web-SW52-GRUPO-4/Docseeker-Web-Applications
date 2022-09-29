@@ -67,7 +67,7 @@
       </div>
     </div>
     <div class="buttonContainer">
-      <router-link to="/"> <pv-button label="Register" class="p-button-lg" @click="createUser()"></pv-button> </router-link>
+      <router-link to="/logIn"> <pv-button label="Register" class="p-button-lg" @click="createUser()"></pv-button> </router-link>
     </div>
 
   </main>
