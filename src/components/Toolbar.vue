@@ -1,6 +1,6 @@
 <template>
   <div class="toolBar">
-    <router-link to="/"><img src="../assets/images/DocSeeker.png" alt="DocSeeker Logo" class="logo"></router-link>
+    <a href="https://mirai-aplicaciones-web-sw52-grupo-4.github.io/Landing-Page-DocSeeker/public/" target="_blank"><img src="../assets/images/DocSeeker.png" alt="DocSeeker Logo" class="logo"></a>
   </div>
 </template>
 
