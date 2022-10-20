@@ -1,6 +1,6 @@
 <template>
   <div class="doctor">
-    <img src="../assets/images/joseimage.jpg" alt="doctor image" class="doctorImg">
+    <img :src= "img" alt="doctor image" class="doctorImg">
     <div class="info">
       <h3 class="doctorName">{{ name }}</h3>
       <div class="infoContainer">
@@ -8,7 +8,8 @@
           <h3 class="doctorArea">{{ area }}</h3>
           <h3 class="doctorDescription">{{ description }}</h3>
         </div>
-        <router-link to="" class="seeContainer">
+        <!-- <router-link :to="{ name: 'doctor', params: {doctor: JSON.stringify(doctor)}}" class="seeContainer"> -->
+        <router-link :to="{ name: 'doctor', params: {id: doctor.id}}" class="seeContainer">
           <p>See profile</p>
           <i class="pi pi-angle-right"></i>
         </router-link>
@@ -18,25 +19,46 @@
 
 </template>
 
-<script>
-export default {
-  name: "DoctorButton",
-  props:{
-    name: {
-      type: String,
-      default: "Doctor's name"
-    },
-    area: {
-      type: String,
-      default: "Area"
-    },
-    description: {
-      type: String,
-      default: "Description"
-    }
-  }
-}
+<script setup>
+const img = `../src/assets/images/${props.name} image.jpg`
+const props = defineProps({
+  name: {
+    type: String,
+    default: "Doctor's name"
+  },
+  area: {
+    type: String,
+    default: "Area"
+  },
+  description: {
+    type: String,
+    default: "Description"
+  },
+  doctor: Object
+})
+
+
 </script>
+
+<!--  <script>
+ export default {
+   name: "DoctorButton",
+   props:{
+     name: {
+       type: String,
+       default: "Doctor's name"
+     },
+     area: {
+       type: String,
+       default: "Area"
+     },
+     description: {
+       type: String,
+       default: "Description"
+     }
+   }
+ }
+ </script> -->
 
 <style scoped>
 .doctor{
