@@ -11,10 +11,10 @@
 
       <div class="container">
         <div class="links">
-          <router-link to="/dashboard" class="link"><i class="pi pi-home"></i> <h2>Home</h2> </router-link>
-          <router-link to="/myProfile" class="link"><i class="pi pi-user"></i> <h2>My Profile</h2> </router-link>
-          <router-link to="/news" class="link"><i class="fa fa-newspaper-o"></i> <h2>News</h2> </router-link>
-          <router-link to="/prescriptions" class="link"><i class="pi pi-file"></i> <h2>Prescription</h2> </router-link>
+          <router-link to="/dashboardDoctor" class="link"><i class="pi pi-home"></i> <h2>Home</h2> </router-link>
+          <router-link to="/myProfileDoctor" class="link"><i class="pi pi-user"></i> <h2>My Profile</h2> </router-link>
+          <router-link to="/newsDoctor" class="link"><i class="fa fa-newspaper-o"></i> <h2>News</h2> </router-link>
+          <router-link to="/yourReviews" class="link"><i class="pi pi-comments"></i> <h2>Reviews</h2> </router-link>
           <router-link to="" class="link"><i class="pi pi-cog"></i> <h2>Configuration</h2> </router-link>
         </div>
         <router-link to="/" class="link logout"> <i class="pi pi-sign-out"></i> <h3>Log out</h3> </router-link>
@@ -87,7 +87,6 @@ export default {
   font-weight: bold;
 
 }
-
 
 @media (hover: hover) {
   .link:hover {
