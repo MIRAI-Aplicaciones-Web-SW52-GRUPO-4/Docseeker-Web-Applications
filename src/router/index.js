@@ -124,7 +124,7 @@ const router = createRouter({
 
     /* DOCTORS */
 
-
+/*
     {
       path: '/logInDoctor',
       name: 'logindoctor',
@@ -159,7 +159,7 @@ const router = createRouter({
       path: '/yourReviews',
       name: "yourReviews",
       component: () => import('../views/doctors/ReviewsView.vue')
-    }
+    }*/
   ]
 })
 
