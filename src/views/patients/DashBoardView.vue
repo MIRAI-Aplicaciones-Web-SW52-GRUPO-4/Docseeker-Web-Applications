@@ -11,8 +11,8 @@
   </div>
 </template>
 <script setup>
-import CardsButton from '../components/CardsButton.vue';
-import MenuBar from '../components/MenuBar.vue';
+import CardsButton from '../../components/CardsButton.vue';
+import MenuBar from '../../components/MenuBar.vue';
 import CarouselProyected from "../components/CarouselProyected.vue"
 </script>
 <style scoped>

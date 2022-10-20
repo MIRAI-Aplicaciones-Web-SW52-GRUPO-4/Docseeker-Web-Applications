@@ -1,5 +1,5 @@
 <script setup>
-import ChangePassword from '../components/ChangePassword.vue'
+import ChangePassword from '../../components/ChangePassword.vue'
 
 </script>
 <template>

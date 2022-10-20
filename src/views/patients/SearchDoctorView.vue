@@ -19,8 +19,8 @@
 </template>
 
 <script setup>
-import DoctorButton from "../components/DoctorButton.vue";
-import MenuBar from "../components/MenuBar.vue";
+import DoctorButton from "../../components/DoctorButton.vue";
+import MenuBar from "../../components/MenuBar.vue";
 </script>
 
 <script>
