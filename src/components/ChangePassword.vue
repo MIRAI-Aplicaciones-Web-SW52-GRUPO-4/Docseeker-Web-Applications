@@ -33,7 +33,7 @@
 </template>
 
 <script>
-import { UsersApiService } from "@/learning/services/users-api.services";
+import { UsersApiService } from "@/learning/services/tutorials-api.services";
 
 export default {
   name: "ChangePassword.vue",
