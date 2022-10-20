@@ -12,27 +12,27 @@ const router = createRouter({
     {
       path: '/logIn',
       name: 'login',
-      component: () => import('../views/LogInView.vue')
+      component: () => import('../views/patients/LogInView.vue')
     },
     {
       path: '/changePassword',
       name: 'changepassword',
-      component: () => import('../views/ChangePasswordView.vue')
+      component: () => import('../views/patients/ChangePasswordView.vue')
     },
     {
       path: '/register',
       name: 'register',
-      component: () => import('../views/RegisterView.vue')
+      component: () => import('../views/patients/RegisterView.vue')
     },
     {
       path: '/dashBoard',
       name: 'dashboard',
-      component: () => import('../views/DashBoardView.vue')
+      component: () => import('../views/patients/DashBoardView.vue')
     },
     {
       path: '/searchDoctor',
       name: 'searchDoctor',
-      component: () => import('../views/SearchDoctorView.vue')
+      component: () => import('../views/patients/SearchDoctorView.vue')
     }
   ]
 })
