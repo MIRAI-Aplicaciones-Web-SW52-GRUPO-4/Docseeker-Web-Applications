@@ -1,14 +1,6 @@
 <template>
   <div class="cards">
-    <router-link to="">
-      <div class="card">
-        <img class="appointment_option" src="../assets/images/menu-calendar.png">
-        <div class="spacer"></div>
-        <div class="option_name">
-          <a>Make an<br>Appointment</a>
-        </div>
-      </div>
-    </router-link>
+
     <router-link to="searchDoctor">
       <div class="card">
         <img class="appointment_option" src="../assets/images/menu-doctor.png">
@@ -18,7 +10,7 @@
         </div>
       </div>
     </router-link>
-    <router-link to="">
+    <router-link to="/medicalInformation">
       <div class="card">
         <img class="appointment_option" src="../assets/images/menu-medic.png">
         <div class="spacer"></div>
@@ -27,7 +19,7 @@
         </div>
       </div>
     </router-link>
-    <router-link to="">
+    <router-link to="/prescriptions">
       <div class="card">
         <img class="appointment_option" src="../assets/images/menu-prescription.png">
         <div class="spacer"></div>
@@ -36,15 +28,7 @@
         </div>
       </div>
     </router-link>
-    <router-link to="">
-      <div class="card">
-        <img class="appointment_option" src="../assets/images/menu-consultancy.png">
-        <div class="spacer"></div>
-        <div class="option_name">
-          <a>Consultancy</a>
-        </div>
-      </div>
-    </router-link>
+
   </div>
 </template>
 
