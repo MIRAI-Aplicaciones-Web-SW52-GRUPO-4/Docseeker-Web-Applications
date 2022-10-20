@@ -17,10 +17,12 @@
         </div>
 
         <div class="picture">
-          <pv-card-content class="welcomeImgCard">
-            <img src="../assets/images/doctor.png" alt="doctor" class="images-Welcome">
-            <h1 style="text-align:center">Doctor</h1>
-          </pv-card-content>
+          <router-link to="/logInDoctor">
+            <pv-card-content class="welcomeImgCard">
+              <img src="../assets/images/doctor.png" alt="doctor" class="images-Welcome">
+              <h1 style="text-align:center">Doctor</h1>
+            </pv-card-content>
+          </router-link>
         </div>
 
       </div>
