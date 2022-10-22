@@ -27,7 +27,7 @@
   </div>
 
   <div class="button-row">
-    <pv-button @click="newReview">Publish</pv-button>
+    <router-link :to="{name: 'doctorReviews', params: {id: $route.params.id}}"> <pv-button @click="newReview">Publish</pv-button> </router-link>
   </div>
 
 </template>
@@ -40,7 +40,87 @@ let text = ref("")
 </script>
 
 <script>
-import { useCounterStore } from "../../stores/counter";
+import {DoctorsApiService} from "../../learning/services/doctors-api.service";
+import {ReviewsApiService} from "../../learning/services/reviews-api.service";
+import {PatientsApiService} from "../../learning/services/patients-api.service";
+import router from "../../router";
+
+export default {
+  data() {
+    return {
+      doctors: [],
+      doctor: {},
+      doctorService: null,
+      review: {},
+      reviews: [],
+      reviewsService: null,
+      patients: [],
+      patient: {},
+      patientsService: null,
+
+
+      text: "",
+      stars: 0
+    }
+  },
+  created() {
+    this.doctorsService = new DoctorsApiService();
+    this.doctorsService.getAll().then((response) => {
+      this.doctors = response.data;
+
+      this.doctors.forEach((doc) =>
+          this.getDisplayableTutorial(doc)
+      );
+      for (let x in this.doctors){
+        if (this.doctors[x].id == this.$route.params.id){
+          this.doctor = this.doctors[x];
+          break;
+        }
+      }
+    });
+
+    this.patientsService = new PatientsApiService();
+    this.patientsService.getAll().then((response) => {
+      this.patients = response.data;
+      for (let x in this.patients){
+        console.log(sessionStorage.getItem("UserId"));
+        console.log(this.patients[x].id)
+        if(this.patients[x].id.toString() == sessionStorage.getItem("UserId")){
+          this.patient = this.patients[x];
+          break;
+        }
+      }
+    });
+
+    this.reviewsService = new ReviewsApiService();
+    this.reviewsService.getAll().then((response) => {
+      this.reviews = response.data;
+    });
+  },
+  methods: {
+    newReview(){
+      this.review = {
+        id: this.reviews.length,
+        profilePhotoUrl: this.patient.photo,
+        customerName: this.patient.name,
+        customerReview: this.text,
+        customerScore: this.stars,
+        idUser: this.patient.id,
+        idDoctor: this.doctor.id
+      }
+
+      this.reviewsService.create(JSON.stringify(this.review));
+
+      //router.push('/doctorReviews');
+    },
+    getDisplayableTutorial(doc) {
+      return doc;
+    }
+  }
+}
+
+
+/*import { useCounterStore } from "../../stores/counter";
 
 export default {
   data(){
@@ -75,7 +155,7 @@ export default {
       console.log(this.reviews)
     }
   }
-}
+}*/
 </script>
 
 <style scoped>
