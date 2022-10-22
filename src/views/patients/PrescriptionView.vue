@@ -46,7 +46,33 @@
 import MenuBar from "../../components/MenuBar.vue"
 </script>
 <script>
-import {useCounterStore} from "../../stores/counter"
+import {PrescriptionsApiService} from "../../learning/services/prescriptions-api.service";
+
+export default {
+  data(){
+    return {
+      prescription: {},
+      prescriptions: [],
+      prescriptionsService: null,
+    }
+  },
+  created(){
+    this.prescriptionsService = new PrescriptionsApiService();
+    this.prescriptionsService.getAll().then((response) => {
+      this.prescriptions = response.data;
+
+      for (let x in this.prescriptions){
+        if (this.prescriptions[x].id == this.$route.params.id){
+          this.prescription = this.prescriptions[x];
+          break;
+        }
+      }
+    });
+  }
+}
+
+
+/*import {useCounterStore} from "../../stores/counter"
 export default {
   data(){
     return{
@@ -65,8 +91,9 @@ export default {
       }
     }
   }
-}
+}*/
 </script>
+
 <style scoped>
 .backButton{
   display:flex;
