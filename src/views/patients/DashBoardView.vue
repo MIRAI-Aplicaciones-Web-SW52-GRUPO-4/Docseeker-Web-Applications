@@ -1,14 +1,14 @@
 <template >
   <div>
     <div class="containerTitle">
-      <MenuBar></MenuBar>
+      <menu-bar></menu-bar>
       <h1 class="title">Welcome User</h1>
     </div>
     <h2 class="newsTitle">¡Recent News!</h2>
     <pv-carousel :value="news" :numVisible="2" :numScroll="1" :circular="true" :autoplayInterval="3000" style="max-width: 100vw;">
       <template #item="slotProps">
-        <h1>{{slotProps.data.title}}</h1>
-        <p>{{slotProps.data.description}}</p>
+        <h1>{{ slotProps.data.title }}</h1>
+        <p>{{ slotProps.data.description }}</p>
         <img :src="slotProps.data.image"/>
       </template>
     </pv-carousel>
@@ -16,42 +16,43 @@
     <CardsButton></CardsButton>
   </div>
 </template>
-<script setup>
-import CardsButton from '../../components/CardsButton.vue';
-import MenuBar from '../../components/MenuBar.vue';
 
-const news = [
-  {
-    title: "noticia 1",
-    description: "no ce manito no importa",
-    image: "https://picsum.photos/id/230/600/300"
+<script setup>
+import CardsButton from "../../components/CardsButton.vue";
+import MenuBar from "../../components/MenuBar.vue";
+</script>
+
+<script>
+
+import {NewsApiService} from "../../learning/services/news-api.services";
+
+
+export default {
+  name: "Home",
+  data() {
+    return {
+      news: [],
+      newsService: null,
+      new: {},
+    };
   },
-  {
-    title: "noticia 2",
-    description: "facilito",
-    image: "https://picsum.photos/id/231/600/300"
+  created(){
+    this.newsService = new NewsApiService();
+    this.newsService.getAll().then((response) => {
+      this.news = response.data;
+      this.news.forEach((newss) =>
+          this.getDisplayableTutorial(newss)
+      );
+    });
   },
-  {
-    title: "noticia 3",
-    description: "jhdksfjhkdfs",
-    image: "https://picsum.photos/id/232/600/300"
-  },
-  {
-    title: "noticia 4",
-    description: "w235342",
-    image: "https://picsum.photos/id/233/600/300"
-  },
-  {
-    title: "noticia 5",
-    description: "no23466o",
-    image: "https://picsum.photos/id/234/600/300"
-  },
-  {
-    title: "ya termino, devuelta al start",
-    description: "3456fghfghf",
-    image: "https://picsum.photos/id/235/600/300"
+  methods: {
+    getDisplayableTutorial(newss) {
+      return newss;
+    }
   }
-]
+}
+
+
 </script>
 
 <style scoped>
