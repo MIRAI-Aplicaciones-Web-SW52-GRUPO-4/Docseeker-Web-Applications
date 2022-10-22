@@ -38,7 +38,7 @@ console.log(news)*/
 </script>
 
 <script>
-import {NewsApiService} from "../../learning/services/news-api.services";
+import {NewsApiService} from "../../learning/services/news-api.service";
 
 export default {
   name: "News",
