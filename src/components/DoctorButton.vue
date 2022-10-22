@@ -1,12 +1,12 @@
 <template>
   <div class="doctor">
-    <img :src= "img" alt="doctor image" class="doctorImg">
+    <img :src="doctor.photo" alt="doctor image" class="doctorImg">
     <div class="info">
-      <h3 class="doctorName">{{ name }}</h3>
+      <h3 class="doctorName">{{ doctor.name }}</h3>
       <div class="infoContainer">
         <div class="aboutContainer">
-          <h3 class="doctorArea">{{ area }}</h3>
-          <h3 class="doctorDescription">{{ description }}</h3>
+          <h3 class="doctorArea">{{ doctor.area }}</h3>
+          <h3 class="doctorDescription">{{ doctor.description }}</h3>
         </div>
         <!-- <router-link :to="{ name: 'doctor', params: {doctor: JSON.stringify(doctor)}}" class="seeContainer"> -->
         <router-link :to="{ name: 'doctor', params: {id: doctor.id}}" class="seeContainer">
@@ -34,31 +34,24 @@ const props = defineProps({
     type: String,
     default: "Description"
   },
+  photo: {
+    type: String,
+    default: "Photo"
+  },
   doctor: Object
 })
 
 
 </script>
+<script>
+export default {
+  name: "DoctorButton",
+  data() {
 
-<!--  <script>
- export default {
-   name: "DoctorButton",
-   props:{
-     name: {
-       type: String,
-       default: "Doctor's name"
-     },
-     area: {
-       type: String,
-       default: "Area"
-     },
-     description: {
-       type: String,
-       default: "Description"
-     }
-   }
- }
- </script> -->
+  }
+
+}
+</script>
 
 <style scoped>
 .doctor{

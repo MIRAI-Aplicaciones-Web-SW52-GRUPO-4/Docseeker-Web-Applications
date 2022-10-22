@@ -7,7 +7,7 @@
       <div class="pictures">
 
         <div class="picture">
-          <router-link to="/logIn">
+          <router-link to="/logIn" >
             <pv-card-content class="welcomeImgCard ">
               <img src="../assets/images/doctorTakeCareOfAPatient.png"
                    alt="doctor take care of a patient" class="images-Welcome">
@@ -38,7 +38,7 @@
 
 <script>
 export default {
-  name: "Welcome.vue"
+  name: "Welcome.vue",
 }
 </script>
 

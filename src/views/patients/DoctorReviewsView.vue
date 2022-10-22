@@ -7,7 +7,7 @@
 
   <div class="card doctorCard">
     <div class="profilePhotoContainer">
-      <img :src="imgUrl" alt="doctor user image">
+      <img :src="doctor.photo" alt="doctor user image">
     </div>
 
     <div class="info">
@@ -66,34 +66,62 @@ import MenuBar from "../../components/MenuBar.vue";
 </script>
 
 <script>
-import { useCounterStore } from "../../stores/counter";
+import {DoctorsApiService} from "../../learning/services/doctors-api.service";
+import {ReviewsApiService} from "../../learning/services/reviews-api.service";
 
 export default {
-  data(){
-    return{
-      imgUrl: null,
-      doctor: useCounterStore().doctors,
-      reviews: useCounterStore().reviews,
-      customerReviews: []
+  data() {
+    return {
+      doctors: [],
+      customerReviews:[],
+      reviews: [],
+      doctor: {},
+      review: {},
+      doctorsService: null,
+      reviewsService: null
     }
   },
   created() {
-    for (let x in this.doctor){
-      if (this.doctor[x].id == this.$route.params.id){
-        this.doctor = this.doctor[x];
-        break;
+
+
+    this.doctorsService = new DoctorsApiService();
+    this.doctorsService.getAll().then((response) => {
+      this.doctors = response.data;
+
+      this.doctors.forEach((doc) =>
+          this.getDisplayableTutorial(doc)
+      );
+      for (let x in this.doctors){
+        if (this.doctors[x].id == this.$route.params.id){
+          this.doctor = this.doctors[x];
+          break;
+        }
       }
-    }
-    this.imgUrl = `../../src/assets/images/${this.doctor.name} image.jpg`
+    });
+
+    this.reviewsService = new ReviewsApiService();
+    this.reviewsService.getAll().then((response) =>
+    {
+      this.reviews = response.data;
+      console.log(this.reviews.length);
+      console.log(this.doctor.id);
+      for (let x in this.reviews){
+        if (this.reviews[x].idDoctor == this.doctor.id){
+          this.customerReviews.push(this.reviews[x]);
+        }
+      }
+    });
+
+
+
   },
-  mounted() {
-    this.reviews.forEach(review => {
-      if (review.idDoctor == this.$route.params.id){
-        this.customerReviews.push(review)
-      }
-    })
+  methods: {
+    getDisplayableTutorial(doc) {
+      return doc;
+    }
   }
 }
+
 </script>
 
 <style scoped>
