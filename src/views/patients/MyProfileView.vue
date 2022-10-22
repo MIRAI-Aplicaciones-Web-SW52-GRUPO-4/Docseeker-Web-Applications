@@ -6,25 +6,25 @@
   <main class="userProfileContainer">
     <section class="userInformation">
       <div class="profilePhotoContainer">
-        <img class="profilePhoto" :src="profilePhotoURL">
+        <img class="profilePhoto" :src="this.patient.photo">
       </div>
 
       <div class="userData">
-        <h1 class="title">Aquiles Martha Brinco Quispe</h1>
+        <h1 class="title">{{ this.patients.name }}</h1>
 
         <div class="dataField">
           <i class="pi pi-calendar" style="font-size: 2rem"></i>
-          <h3>17 / 04 / 1973</h3>
+          <h3>{{this.patient.birthday}}</h3>
         </div>
 
         <div class="dataField">
           <i class="pi pi-phone" style="font-size: 2rem"></i>
-          <h3>976 123 345</h3>
+          <h3>{{ this.patient.cell1 }}</h3>
         </div>
 
         <div class="dataField">
           <i class="pi pi-envelope" style="font-size: 2rem"></i>
-          <h3>aquilesbrinco@gmail.com</h3>
+          <h3>{{this.patient.email}}</h3>
         </div>
 
       </div>
@@ -97,93 +97,126 @@
 </template>
 
 <script setup>
-  import MenuBar from "../../components/MenuBar.vue";
+import MenuBar from "../../components/MenuBar.vue";
 
-  const profilePhotoURL = "src/assets/images/User profile photo.jpg";
+/*const profilePhotoURL = "src/assets/images/User profile photo.jpg";*/
+
+</script>
+
+<script>
+import {PatientsApiService} from "../../learning/services/patients-api.service";
+import {DoctorsApiService} from "../../learning/services/doctors-api.service";
+
+export default  {
+  name: "Profile",
+  data(){
+    return {
+      patients: [],
+      patientService: null,
+      patient: {}
+    }
+  },
+  created(){
+    this.patientsService = new PatientsApiService();
+    this.patientsService.getAll().then((response) => {
+      this.patients = response.data;
+      for (let x in this.patients){
+        if (this.patients[x].id.toString() == sessionStorage.getItem("UserId")){
+          this.patient = this.patients[x];
+          break;
+        }
+      }
+    });
+
+  },
+  methods: {
+
+  }
+}
 
 </script>
 
 <style scoped>
 
-  .backButton{
-    display:flex;
-    align-items: center;
-  }
+.backButton{
+  display:flex;
+  align-items: center;
+}
 
-  .userProfileContainer {
-    display: flex;
-    flex-flow: column;
-    align-items: center;
-  }
+.userProfileContainer {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+}
 
-  .userInformation {
-    border: 3px solid #505050;
-    display: flex;
-    justify-content: center;
-    padding: 1% 0;
-    margin: 0 0 1% 0;
-    border-radius: 1rem;
-    width: 80%;
-  }
+.userInformation {
+  border: 3px solid #505050;
+  display: flex;
+  justify-content: center;
+  padding: 1% 0;
+  margin: 0 0 1% 0;
+  border-radius: 1rem;
+  width: 80%;
+}
 
-  .profilePhotoContainer {
-    width: 250px;
-    height: 250px;
-    border: 3px solid #2980B9;
-    border-radius: 50%;
-    overflow: hidden;
-  }
+.profilePhotoContainer {
+  width: 250px;
+  height: 250px;
+  border: 3px solid #2980B9;
+  border-radius: 50%;
+  overflow: hidden;
+}
 
-  .profilePhoto {
-    width: 100%;
-    height: auto;
-  }
+.profilePhoto {
+  width: 100%;
+  height: auto;
+}
 
-  .userData {
-    display: flex;
-    flex-flow: column;
-    justify-content: space-evenly;
-    margin-left: 5%;
-  }
+.userData {
+  display: flex;
+  flex-flow: column;
+  justify-content: space-evenly;
+  margin-left: 5%;
+}
 
-  .dataField {
-    display: flex;
-  }
+.dataField {
+  display: flex;
+}
 
-  .dataField h3 {
-    margin-left: 1rem;
-  }
+.dataField h3 {
+  margin-left: 1rem;
+}
 
-  .additionalLinks {
-    border: 3px solid #505050;
-    border-radius: 1rem;
-    display: flex;
-    justify-content: space-between;
-    width: 80%;
-    padding: 0 1%;
-  }
+.additionalLinks {
+  border: 3px solid #505050;
+  border-radius: 1rem;
+  display: flex;
+  justify-content: space-between;
+  width: 80%;
+  padding: 0 1%;
+}
 
-  .additionalLinks {
-    margin: 1% 0;
-  }
+.additionalLinks {
+  margin: 1% 0;
+}
 
-  .leftCol {
-    display: flex;
-    width: 30%;
-  }
+.leftCol {
+  display: flex;
+  width: 30%;
+}
 
-  .additionalLinksIcon {
-    align-self: center;
-  }
+.additionalLinksIcon {
+  align-self: center;
+}
 
-  .additionalLinksText {
-    margin-left: 10%;
-  }
+.additionalLinksText {
+  margin-left: 10%;
+}
 
-  .additionalLinksGoToLink {
-    align-self: center;
-  }
-  .title{
-    font-weight: bolder;
-  }
+.additionalLinksGoToLink {
+  align-self: center;
+}
+.title{
+  font-weight: bolder;
+}
 </style>
