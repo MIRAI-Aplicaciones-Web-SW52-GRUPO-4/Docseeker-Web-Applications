@@ -20,7 +20,9 @@ import Column from 'primevue/column';
 import ColumnGroup from 'primevue/columngroup';     //optional for column grouping
 import Row from 'primevue/row';                     //optional for row
 import InputNumber from 'primevue/inputnumber';
-import router from './router'
+import router from './router';
+import Message from 'primevue/message';
+import Dialog from 'primevue/dialog';
 
 import './assets/main.css'
 import "primevue/resources/themes/md-light-indigo/theme.css";
@@ -48,6 +50,8 @@ app.component("pv-column",Column);
 app.component("pv-columnGroup",ColumnGroup);
 app.component("pv-row",Row);
 app.component("pv-inputNumber",InputNumber);
+app.component("pv-message", Message);
+app.component("pv-dialog", Dialog);
 
 app.use(router)
 app.use(MotionPlugin)
