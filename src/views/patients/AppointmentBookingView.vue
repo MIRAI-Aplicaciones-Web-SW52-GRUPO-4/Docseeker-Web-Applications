@@ -66,6 +66,14 @@ export default {
         hourId: this.hour
       }
 
+      for (let x in this.doctor.hoursAvailable){
+        if(this.doctor.hoursAvailable[x].id == this.hour) {
+          this.doctor.hoursAvailable[x].booked = true;
+        }
+      }
+
+      this.doctorsService.update(this.doctor.id, JSON.stringify(this.doctor));
+
       this.datesService.create(JSON.stringify(this.date));
     }
   }
