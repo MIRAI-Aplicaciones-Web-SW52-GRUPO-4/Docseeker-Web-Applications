@@ -6,8 +6,9 @@
   </div>
   <h2 class="title">These are all hours available for {{$route.params.date}}</h2>
 
-  <HourAvailable v-for="available in doctor.hoursAvailable" :date=$route.params.date :hour=available.hours :name=doctor.name :area=doctor.area :cost=doctor.cost :doctorId=doctor.id :hourId=available.id
-                 v-show="!this.invalidDate.includes(available.id)"/>
+  <HourAvailable @click="schedule(), hour = available.hours" v-model="hour" v-for="available in doctor.hoursAvailable" :date=$route.params.date :hour=available.hours
+                 :name=doctor.name :area=doctor.area :cost=doctor.cost :doctorId=doctor.id :hourId=available.id
+                 v-show="!available.booked"/>
 
 </template>
 
@@ -19,34 +20,54 @@ import HourAvailable from "../../components/HourAvailable.vue"
 </script>
 
 <script>
-import { useCounterStore } from "../../stores/counter";
+import {DoctorsApiService} from "../../learning/services/doctors-api.service";
+import {DatesApiService} from "../../learning/services/dates-api.service";
 
 export default {
-  data(){
-    return{
-      doctor: [...useCounterStore().doctors],
-      dates: useCounterStore().dates,
-      invalidDate: []
+  data() {
+    return {
+      doctors: [],
+      doctor: {},
+      dates: [],
+      date: {},
+      doctorsService: null,
+      datesService: null,
+
+      hour: 0
+
     }
   },
   created() {
-    for (let x in this.doctor){
-      if (this.doctor[x].id == this.$route.params.id){
-        this.doctor = this.doctor[x];
-        break;
-      }
-    }
-  },
-  mounted(){
+    this.doctorsService = new DoctorsApiService();
+    this.doctorsService.getAll().then((response) => {
+      this.doctors = response.data;
 
-    this.doctor.hoursAvailable.forEach(available => {
-      this.dates.forEach(date => {
-        if ((date.date == this.$route.params.date) && (date.hourId == available.id) && (date.doctorId == this.$route.params.id)){
-          this.invalidDate.push(this.doctor.hoursAvailable.indexOf(available));
+      for (let x in this.doctors){
+        if (this.doctors[x].id == this.$route.params.id){
+          this.doctor = this.doctors[x];
+          break;
         }
-      })
+      }
     });
 
+    this.datesService = new DatesApiService();
+    this.datesService.getAll().then((response) => {
+      this.dates = response.data;
+    });
+
+  },
+  methods: {
+    schedule() {
+      this.date = {
+        id: this.dates.length,
+        idPatient: sessionStorage.getItem("UserId"),
+        doctorId: this.doctor.id,
+        date: this.$route.params.date,
+        hourId: this.hour
+      }
+
+      this.datesService.create(JSON.stringify(this.date));
+    }
   }
 }
 </script>
