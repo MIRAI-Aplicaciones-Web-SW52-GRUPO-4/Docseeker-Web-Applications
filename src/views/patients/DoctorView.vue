@@ -9,7 +9,7 @@
   </header>
   <main class="container">
     <div class="doctorProfile">
-      <img class="doctorImg" :src="imgUrl" alt="profile image"/>
+      <img class="doctorImg" :src="doctor.photo" alt="profile image"/>
       <div class="doctorInfo">
         <div class="doctorPrincipal">
           <h1>{{doctor.name}}</h1>
@@ -51,42 +51,57 @@
 
     <div class="doctorEducation">
       <h2 class="title">Education</h2>
-      <h2 class="education" v-for="education in doctor.education">{{education.name}}</h2>
+      <h2 class="education" v-for="edu in doctor.education">{{edu.name}}</h2>
     </div>
 
     <router-link :to="{name: 'doctorReviews', params: {id: $route.params.id}}"><pv-button class="buttonSchedule p-button-lg" label="See Review"></pv-button></router-link>
 
   </main>
 </template>
-<script>
-import { useCounterStore } from "../../stores/counter";
-
-export default {
-  data(){
-    return{
-      imgUrl: null,
-      doctor: useCounterStore().doctors
-    }
-  },
-  created() {
-    for (let x in this.doctor){
-      console.log(this.doctor[x].id)
-      console.log(this.$route.params.id, "siu")
-      if (this.doctor[x].id == this.$route.params.id){
-        console.log("hshs")
-        this.doctor = this.doctor[x];
-        console.log(this.doctor, "ya esta")
-        break;
-      }
-    }
-    this.imgUrl = `../../src/assets/images/${this.doctor.name} image.jpg`
-  }
-}
-</script>
-
 <script setup>
 import MenuBar from "../../components/MenuBar.vue";
 </script>
+
+<script>
+import {DoctorsApiService} from "../../learning/services/doctors-api.service";
+
+export default  {
+  name: "Doctor",
+  data(){
+    return {
+      imgUrl: null,
+      doctors: [],
+      doctorsService: null,
+      doctor: {}
+    }
+  },
+  created(){
+    this.doctorsService = new DoctorsApiService();
+    this.doctorsService.getAll().then((response) => {
+      this.doctors = response.data;
+
+      this.doctors.forEach((doc) =>
+          this.getDisplayableTutorial(doc)
+      );
+      for (let x in this.doctors){
+        if (this.doctors[x].id == this.$route.params.id){
+          this.doctor = this.doctors[x];
+          break;
+        }
+      }
+    });
+
+  },
+  methods: {
+    getDisplayableTutorial(doc) {
+      return doc;
+    }
+  }
+}
+
+</script>
+
+
 <style scoped>
 .backButton{
   display:flex;
