@@ -6,10 +6,12 @@
     </div>
     <h2 class="newsTitle">¡Recent News!</h2>
     <pv-carousel :value="news" :numVisible="2" :numScroll="1" :circular="true" :autoplayInterval="3000" style="max-width: 100vw;">
-      <template #item="slotProps">
-        <h1>{{ slotProps.data.title }}</h1>
-        <p>{{ slotProps.data.description }}</p>
-        <img :src="slotProps.data.image"/>
+      <template #item="slotProps" class="card">
+          <h3>{{ slotProps.data.title }}</h3>
+        <div class="containerImg">
+
+          <img :src="slotProps.data.image"/>
+        </div>
       </template>
     </pv-carousel>
     <h2 class="buttonsTitle">¿What do you need?</h2>
@@ -71,4 +73,26 @@ export default {
   font-weight: bolder;
   margin: 2rem;
 }
+img{
+  width:300px;
+}
+_new{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content:center;
+
+}
+_new h3{
+  font-weight: bolder;
+  text-align: center;
+  width: 80%;
+
+}
+.containerImg{
+  width:100%;
+  text-align: center;
+  margin:1rem;
+}
+
 </style>
