@@ -697,7 +697,7 @@
       "medicalSpeciality": "Dermatology",
       "recipCode": "123456789",
       "condition": "Valid",
-      "rest": ". Sleep a aaalot Rest your voice too.",
+      "rest": ". Sleep a lot Rest your voice too.",
       "drink": ". Liquids keep the throat hydrated and prevent dehydration. Avoid caffeine and alcohol, which can dehydrate you.",
       "food": ". Hot beverages, such as broth, non-caffeinated tea, or warm water with honey, and cold snacks, such as popsicle sticks, can soothe a sore throat. You should never give honey to babies younger than 1 month old.",
       "medicines": [
@@ -730,9 +730,9 @@
       "medicalSpeciality": "Dermatology",
       "recipCode": "123456789",
       "condition": "Valid",
-      "rest": ". Sleep a loooooooooooooooot Rest your voice too.",
-      "drink": ". Liquids keasl, which can dehydrate you.",
-      "food": ". Muchas hamburguesa",
+      "rest": ". Sleep a lot Rest your voice too.",
+      "drink": ". Liquids keep the throat hydrated and prevent dehydration. Avoid caffeine and alcohol, which can dehydrate you.",
+      "food": ". Hot beverages, such as broth, non-caffeinated tea, or warm water with honey, and cold snacks, such as popsicle sticks, can soothe a sore throat. You should never give honey to babies younger than 1 month old.",
       "medicines": [
         {
           "id": 0,
@@ -744,7 +744,7 @@
         },
         {
           "id": 2,
-          "medicine": "Masds - 4 Sachets"
+          "medicine": "Ibuprofeno - 4 Sachets"
         }
       ],
       "numberDose": 1,
@@ -768,7 +768,7 @@
       "recipCode": "123456789",
       "condition": "Valid",
       "rest": ". Sleep a lot Rest your voice too.",
-      "drink": ". Lsade and alcohol, which can dehydrate you.",
+      "drink": ". Liquids keep the throat hydrated and prevent dehydration. Avoid caffeine and alcohol, which can dehydrate you.",
       "food": ". Hot beverages, such as broth, non-caffeinated tea, or warm water with honethroat. You should never give honey to babies younger than 1 month old.",
       "medicines": [
         {
@@ -821,7 +821,7 @@
       ],
       "hours": [
         "8:00 AM",
-        "3:00 PM",
+        "6:00 PM",
         "8:00 PM"
       ]
     },
@@ -888,7 +888,7 @@
       "hours": [
         "8:00 AM",
         "3:00 PM",
-        "8:00 PM"
+        "10:00 PM"
       ]
     },
     {
@@ -920,8 +920,8 @@
       ],
       "hours": [
         "8:00 AM",
-        "3:00 PM",
-        "8:00 PM"
+        "12:00 PM",
+        "3:00 PM"
       ]
     },
     {
