@@ -1,5 +1,6 @@
 import http from '../../core/services/http-common';
 
+
 export class UsersApiService {
     getAll() {
         return http.get('/users');

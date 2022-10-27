@@ -70,5 +70,6 @@ export default {
 }
 img{
   border-radius: 15px;
+  width: 100%;
 }
 </style>
