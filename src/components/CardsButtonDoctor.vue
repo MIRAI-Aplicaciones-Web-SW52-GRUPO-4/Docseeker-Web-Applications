@@ -1,15 +1,15 @@
 <template>
   <div class="cards">
-    <router-link to="">
+    <router-link to="/addPrescription">
       <div class="card">
-        <img class="appointment_option" src="../assets/images/schedule.png">
+        <img class="appointment_option" src="../assets/images/appointments.png">
         <div class="spacer"></div>
         <div class="option_name">
-          <a>Add<br>schedule</a>
+          <a>Add<br>prescription</a>
         </div>
       </div>
     </router-link>
-    <router-link to="searchDoctor">
+    <router-link to="/income">
       <div class="card">
         <img class="appointment_option" src="../assets/images/salary.png">
         <div class="spacer"></div>
@@ -18,9 +18,9 @@
         </div>
       </div>
     </router-link>
-    <router-link to="/medicalHistory">
+    <router-link to="/appointments">
       <div class="card">
-        <img class="appointment_option" src="../assets/images/appointments.png">
+        <img class="appointment_option" src="../assets/images/schedule.png">
         <div class="spacer"></div>
         <div class="option_name">
           <a>My<br>appointments</a>
