@@ -71,27 +71,6 @@ export default {
   }
 }
 
-
-/*import {useCounterStore} from "../../stores/counter"
-export default {
-  data(){
-    return{
-      prescription: useCounterStore().prescriptions
-    }
-  },
-  created() {
-    for (let x in this.prescription){
-      console.log(this.prescription[x].id)
-      console.log(this.$route.params.id, "siu")
-      if (this.prescription[x].id == this.$route.params.id){
-        console.log("hshs")
-        this.prescription = this.prescription[x];
-        console.log(this.prescription, "ya esta")
-        break;
-      }
-    }
-  }
-}*/
 </script>
 
 <style scoped>

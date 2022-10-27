@@ -367,7 +367,7 @@
         {
           "id": 0,
           "hours": "9:00 AM - 10:00 AM",
-          "booked": false
+          "booked": true
         },
         {
           "id": 1,
@@ -677,6 +677,13 @@
       "idPatient": "2",
       "doctorId": 2,
       "date": "2022-10-21",
+      "hourId": 0
+    },
+    {
+      "id": 7,
+      "idPatient": "0",
+      "doctorId": 1,
+      "date": "2022-10-22",
       "hourId": 0
     }
   ],
