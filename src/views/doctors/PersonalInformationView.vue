@@ -168,4 +168,19 @@ export default {
     width: 80%;
   }
 
+  @media (max-width: 750px) {
+    .personalInfoContainer {
+      border: 3px solid #FD5D5D;
+      display: flex;
+      flex-flow: column;
+      align-items: center;
+      padding: 1% 0;
+    }
+
+    .personalDataRow {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+
 </style>
