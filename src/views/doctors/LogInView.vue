@@ -17,6 +17,7 @@
   <style scoped>
     .container{
         display: flex;
+        flex-wrap: wrap;
         justify-content: space-evenly;
         align-items: center;
     }
@@ -29,5 +30,20 @@
     }
     .images-Welcome{
         width: 700px;
+    }
+    @media (max-width: 750px){
+      .container{
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+      .welcomeImgCard{
+        width: 50%;
+        flex-direction: column-reverse;
+
+      }
+      .images-Welcome{
+        width: 100%;
+      }
     }
   </style>
