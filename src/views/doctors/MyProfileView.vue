@@ -43,7 +43,9 @@
     <section class="userCareer">
       <div class="infoBlock">
         <h2 class="gray">Description</h2>
-        <p>{{doctor.description}}</p>
+        <div class="infoBlock-description">
+          <p>{{doctor.description}}</p>
+        </div>
       </div>
       <div class="infoBlock">
         <h2 class="gray"><i class="pi pi-star"></i>  Score: 4.7</h2>
@@ -67,7 +69,7 @@ import { useCounterStore } from "../../stores/counter";
 export default {
   data(){
     return{
-      userId: 5, /* ID DEL USUARIO LOGEADO */
+      userId: 0, /* ID DEL USUARIO LOGEADO */
       doctor: {}
     }
   },
@@ -115,10 +117,11 @@ export default {
 .profilePhoto {
   width: 250px;
   height: 250px;
+  min-width: 100px;
+  min-height: 100px;
   border: 3px solid #2980B9;
   border-radius: 50%;
   overflow: hidden;
-  height: auto;
 }
 
 .userData {
@@ -126,7 +129,6 @@ export default {
   flex-flow: column;
   justify-content: space-evenly;
   margin: 2rem 4rem 2rem 2rem;
-
 }
 
 .dataField {
@@ -137,7 +139,6 @@ export default {
 .dataField h3 {
   margin-left: 1rem;
 }
-
 
 .title{
   font-weight: bolder;
@@ -171,5 +172,47 @@ h3{
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+@media (max-width: 1180px) {
+  .userProfileContainer {
+    border: 3px solid #2cb0b0;
+  }
+
+  .userInformation {
+    display: flex;
+    flex-flow: column;
+  }
+
+  .userInformation h1 {
+    text-align: center;
+  }
+
+  .dataField {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+  }
+
+  .userCareer {
+    flex-flow: column;
+    align-items: center;
+  }
+
+  .infoBlock {
+    width: 100%;
+  }
+
+  .infoBlock-description {
+    width: 100%;
+  }
+
+  .infoBlock-description p {
+    font-size: 13px;
+  }
+
+  .btnContainer .btn {
+    width: 100%;
+  }
 }
 </style>
