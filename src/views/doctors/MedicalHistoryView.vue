@@ -88,4 +88,11 @@ export default {
     .history h3{
         font-weight: bolder;
     }
+    @media (max-width: 750px){
+      .containerInfo{
+        flex-direction: column-reverse;
+        justify-content: center;
+        align-items: center;
+      }
+    }
 </style>
