@@ -95,4 +95,10 @@
   height: 30px;
 }
 
+@media (max-width: 750px) {
+  .cards{
+    flex-wrap: wrap;
+    gap: 2rem;
+  }
+}
 </style>
