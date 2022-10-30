@@ -97,4 +97,17 @@ export default {
 .h3{
   color:blue;
 }
+@media (max-width: 750px) {
+  .doctor, .infoContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  .doctorImg{
+    width: 50%;
+    height: 50%;
+  }
+}
 </style>
