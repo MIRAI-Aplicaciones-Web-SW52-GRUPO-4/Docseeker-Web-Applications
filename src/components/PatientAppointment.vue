@@ -3,8 +3,8 @@
     <img :src="image" alt="patient image" class="patientImg">
     <div className="info">
       <h3 className="patientName">For {{ name }}</h3>
-      <h3>{{ da te }}</h3>
-      <h3>{{ ho ur }}</h3>
+      <h3>{{ date }}</h3>
+      <h3>{{ hour }}</h3>
     </div>
   </div>
 </template>
@@ -82,5 +82,12 @@ const props = defineProps({
 
 .h3 {
   color: blue;
+}
+@media (max-width: 750px){
+  .patient{
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
 }
 </style>
