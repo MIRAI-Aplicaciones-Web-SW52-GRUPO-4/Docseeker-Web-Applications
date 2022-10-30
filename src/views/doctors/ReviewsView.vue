@@ -64,7 +64,7 @@
 export default {
     data(){
         return{
-            userId: 5, /* ID DEL USUARIO LOGEADO */
+            userId: 0, /* ID DEL USUARIO LOGEADO */
             doctor: {},
             customerReviews: []
         }
@@ -151,5 +151,18 @@ export default {
   .separatorLine {
     border: 1px solid #717171;
     background-color: #717171;
+  }
+  @media (max-width: 750px) {
+    .card{
+      flex-direction: column;
+      margin: 2rem;
+      gap: 1rem;
+      padding: 2rem;
+      border-bottom: 1px solid black;
+    }
+    .profilePhotoContainer{
+      width: 40%;
+
+    }
   }
 </style>
