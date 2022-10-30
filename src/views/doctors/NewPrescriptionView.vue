@@ -208,4 +208,15 @@ export default {
   background-color: #2980B9;
   width: 50%;
 }
+@media (max-width: 750px){
+  .containerInfo{
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .inputs{
+    display: flex;
+    flex-direction: column;
+  }
+}
 </style>

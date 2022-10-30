@@ -84,4 +84,11 @@
     .h3{
       color:blue;
     }
+    @media (max-width: 750px){
+      .patient{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+    }
   </style>
