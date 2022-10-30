@@ -80,4 +80,16 @@ const props = defineProps({
   color: #426267;
   border-bottom: 1px solid;
 }
+@media (max-width: 750px){
+  .containerHour{
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    width: 70%;
+    margin: 2rem auto;
+  }
+  .doctor{
+    flex-direction: column;
+  }
+}
 </style>
