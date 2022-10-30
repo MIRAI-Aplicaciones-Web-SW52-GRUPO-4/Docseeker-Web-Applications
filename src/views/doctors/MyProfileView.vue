@@ -175,10 +175,6 @@ h3{
 }
 
 @media (max-width: 1180px) {
-  .userProfileContainer {
-    border: 3px solid #2cb0b0;
-  }
-
   .userInformation {
     display: flex;
     flex-flow: column;
