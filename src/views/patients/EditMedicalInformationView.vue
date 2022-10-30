@@ -139,7 +139,7 @@ export default {
   }
   .btn{
     background-color: #0093AB;
-    width: 10%;
+    width: 200px;
     height: 100px;
     font-size: 25px;
   }
