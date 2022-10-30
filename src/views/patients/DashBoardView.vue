@@ -5,11 +5,10 @@
       <h1 class="title">Welcome User</h1>
     </div>
     <h2 class="newsTitle">¡Recent News!</h2>
-    <pv-carousel :value="news" :numVisible="2" :numScroll="1" :circular="true" :autoplayInterval="3000" style="max-width: 100vw;">
+    <pv-carousel :value="news" :numVisible="2" :numScroll="1" :circular="true" :autoplayInterval="3000" :responsiveOptions="responsiveOptions" style="max-width: 100vw;">
       <template #item="slotProps" class="card">
           <h3>{{ slotProps.data.title }}</h3>
         <div class="containerImg">
-
           <img :src="slotProps.data.image"/>
         </div>
       </template>
@@ -36,6 +35,23 @@ export default {
       news: [],
       newsService: null,
       new: {},
+      responsiveOptions: [
+        {
+          breakpoint: '1024px',
+          numVisible: 3,
+          numScroll: 3
+        },
+        {
+          breakpoint: '750px',
+          numVisible: 1,
+          numScroll: 1
+        },
+        {
+          breakpoint: '480px',
+          numVisible: 1,
+          numScroll: 1
+        }
+      ]
     };
   },
   created(){
