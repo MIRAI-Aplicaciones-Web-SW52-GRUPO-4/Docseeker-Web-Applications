@@ -150,4 +150,19 @@ h2, p{
   height: 50px;
   border-radius: 15px;
 }
+@media (max-width: 750px){
+  .recomendations{
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    gap: 1rem;
+    height: 100%;
+  }
+  .tips{
+    flex-direction: column;
+  }
+  .medicine p{
+    text-align: center;
+  }
+}
 </style>
