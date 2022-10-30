@@ -10,7 +10,7 @@
       </div>
 
       <div class="userData">
-        <h1 class="title">{{ this.patients.name }}</h1>
+        <h1 class="title">{{ this.patient.name }}</h1>
 
         <div class="dataField">
           <i class="pi pi-calendar" style="font-size: 2rem"></i>
@@ -218,5 +218,16 @@ export default  {
 }
 .title{
   font-weight: bolder;
+}
+@media (max-width: 750px){
+  .userInformation{
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+  }
+  .userData{
+    gap: 1rem;
+  }
 }
 </style>
