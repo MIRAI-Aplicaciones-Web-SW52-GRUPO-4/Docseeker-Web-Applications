@@ -7,7 +7,7 @@
   <h3>Register a new prescription for {{patient.name}}.</h3>
   <div class="prescription">
     <div class="containerInfo">
-      <img :src="patient.photo" alt="patient image">
+      <img :src="patient.photo" alt="patient image" class="patientImg">
       <div class="info">
         <h3>Name: {{patient.name}}</h3>
         <h3>Genre: {{patient.genre}}</h3>
@@ -172,7 +172,6 @@ export default {
   align-items: center;
   justify-content: center;
   gap: 2rem;
-  height: 200px;
   margin-bottom: 1rem;
 }
 .info{
@@ -218,5 +217,11 @@ export default {
     display: flex;
     flex-direction: column;
   }
+}
+.patientImg{
+  width:150px;
+  height:150px;
+  border-radius: 20px;
+  border-color: #0093AB;
 }
 </style>

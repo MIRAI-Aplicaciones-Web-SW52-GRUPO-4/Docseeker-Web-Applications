@@ -10,7 +10,7 @@
 </template>
 
 <script setup>
-const img = `../src/assets/images/${props.name} image.jpg`
+const image = `https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/Emblem-person-blue.svg/2048px-Emblem-person-blue.svg.png`
 const props = defineProps({
   name: {
     type: String,

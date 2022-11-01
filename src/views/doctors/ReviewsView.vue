@@ -29,7 +29,7 @@
     <div class="customerReviewCard" v-for="review in customerReviews">
       <div class="card">
         <div class="profilePhotoContainer">
-          <img :src="review.profilePhotoUrl">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/Emblem-person-blue.svg/2048px-Emblem-person-blue.svg.png">
         </div>
 
         <div class="info">

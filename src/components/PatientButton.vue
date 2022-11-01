@@ -1,7 +1,7 @@
 <template>
   <router-link :to="{name: 'medicalHistoryPatient', params: {id: patient.id}}">
     <div class="patient">
-      <img :src= "patient.photo" alt="patient image" class="patientImg">
+      <img :src= "img" alt="patient image" class="patientImg">
       <div class="info">
         <h3 class="patientName">For {{ patient.name }}</h3>
       </div>
@@ -10,7 +10,7 @@
 </template>
 
 <script setup>
-const img = `../src/assets/images/${props.name} image.jpg`
+const img = `https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/Emblem-person-blue.svg/2048px-Emblem-person-blue.svg.png`
 const props = defineProps({
   patient:{
     type: Object

@@ -32,9 +32,38 @@
 </template>
 <script setup>
 import MenuBarDoctor from '../../components/MenuBarDoctor.vue';
-import { useCounterStore } from "../../stores/counter";
+/*import { useCounterStore } from "../../stores/counter";
 const news = useCounterStore().news;
-console.log(news)
+console.log(news)*/
+</script>
+
+<script>
+import {NewsApiService} from "../../learning/services/news-api.service";
+
+export default {
+  name: "News",
+  data() {
+    return {
+      news: [],
+      newsService: null,
+      new: {},
+    };
+  },
+  created(){
+    this.newsService = new NewsApiService();
+    this.newsService.getAll().then((response) => {
+      this.news = response.data;
+      this.news.forEach((newss) =>
+          this.getDisplayableTutorial(newss)
+      );
+    });
+  },
+  methods: {
+    getDisplayableTutorial(newss) {
+      return newss;
+    }
+  }
+}
 </script>
 
 <style scoped>
