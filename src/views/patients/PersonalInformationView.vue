@@ -146,4 +146,14 @@
     width: 80%;
   }
 
+  @media (max-width: 750px){
+    .personalInfoContainer{
+      flex-direction: column-reverse;
+      align-items: center;
+      justify-content: center;
+    }
+    .personalDataRow{
+      flex-direction: column;
+    }
+  }
 </style>

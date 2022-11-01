@@ -162,5 +162,11 @@ h3{
 .fullSize{
   width: 100%;
 }
-
+@media (max-width: 750px){
+  .inputContainers{
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+  }
+}
 </style>

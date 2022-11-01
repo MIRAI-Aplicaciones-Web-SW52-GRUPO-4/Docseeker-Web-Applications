@@ -196,5 +196,15 @@ ul{
 .pathological li{
   color: #FD5D5D;
 }
-
+@media (max-width: 750px){
+  .userInfo, .informations{
+    flex-direction: column;
+    gap: 1rem;
+  }
+  ul{
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+}
 </style>

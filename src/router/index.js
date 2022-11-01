@@ -124,11 +124,16 @@ const router = createRouter({
 
     /* DOCTORS */
 
-/*
+
     {
       path: '/logInDoctor',
       name: 'logindoctor',
       component: () => import('../views/doctors/LogInView.vue')
+    },
+    {
+      path: '/registerDoctor',
+      name: 'registerDoctor',
+      component: () => import('../views/doctors/RegisterView.vue')
     },
     {
       path: '/dashboardDoctor',
@@ -159,7 +164,40 @@ const router = createRouter({
       path: '/yourReviews',
       name: "yourReviews",
       component: () => import('../views/doctors/ReviewsView.vue')
-    }*/
+    },
+    {
+      path: '/medicalHistory',
+      name: "medicalHistory",
+      component: () => import('../views/doctors/MedicalHistoriesView.vue')
+    },
+    {
+      path: '/medicalHistory/:id',
+      name: "medicalHistoryPatient",
+      component: () => import('../views/doctors/MedicalHistoryView.vue')
+    },
+    {
+      path: '/createMedicalHistory/:id',
+      name: "createMedicalHistory",
+      component: () => import('../views/doctors/CreateMedicalHistoryView.vue')
+    }
+    ,
+    {
+      path: '/appointments',
+      name: "appointments",
+      component: () => import('../views/doctors/MyAppointmentsView.vue')
+    }
+    ,
+    {
+      path: '/addPrescription',
+      name: "addPrescription",
+      component: () => import('../views/doctors/AddPrescriptionView.vue')
+    }
+    ,
+    {
+      path: '/addPrescription/:id',
+      name: "addPrescriptionToUser",
+      component: () => import('../views/doctors/NewPrescriptionView.vue')
+    }
   ]
 })
 

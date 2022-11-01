@@ -12,7 +12,6 @@
 <script setup>
 import MenuBar from '../../components/MenuBar.vue';
 import router from '../../router';
-const selectedProduct = null;
 function onRowSelect(event) {
   console.log(event.data.id)
   router.push({name: 'prescription', params: {id: event.data.id}})
@@ -28,12 +27,13 @@ const columns = [
 </script>
 <script>
 
-import {DoctorsApiService} from "../../learning/services/doctors-api.service";
 import {PrescriptionsApiService} from "../../learning/services/prescriptions-api.service";
 
 export default {
   data(){
     return {
+
+      selectedProduct: null,
       prescription: {},
       prescriptions: [],
       prescriptionsService: null,
@@ -56,8 +56,6 @@ export default {
   }
 }
 
-/*import {useCounterStore} from "../../stores/counter"
-const prescriptions = useCounterStore().prescriptions*/
 </script>
 <style scoped>
 .containerTitle{

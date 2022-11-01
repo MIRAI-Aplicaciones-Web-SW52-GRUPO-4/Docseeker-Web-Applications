@@ -1,6 +1,6 @@
 <template>
   <div class="containerTitle">
-    <MenuBar></MenuBar>
+    <MenuBarDoctor></MenuBarDoctor>
     <h1 class="title">News</h1>
   </div>
   <div class="inputContainer">
@@ -14,7 +14,7 @@
   <div class="cardsContainer">
     <pv-card class="card" v-for="newCard in news">
       <template #header>
-        <router-link :to="{ name: 'new', params: {id: newCard.id}}">
+        <router-link :to="{ name: 'newdoctor', params: {id: newCard.id}}">
           <img alt="image" :src="newCard.image">
         </router-link>
       </template>
@@ -31,7 +31,7 @@
   </div>
 </template>
 <script setup>
-import MenuBar from '../../components/MenuBar.vue';
+import MenuBarDoctor from '../../components/MenuBarDoctor.vue';
 /*import { useCounterStore } from "../../stores/counter";
 const news = useCounterStore().news;
 console.log(news)*/

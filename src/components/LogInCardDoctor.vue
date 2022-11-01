@@ -21,7 +21,7 @@
           <br>
           <router-link to="/dashBoardDoctor"><pv-button class="buttonLogIn" label="Log In" /></router-link><br>
           <router-link to="/changePassword" class="link">I forgot my password</router-link><br>
-          <router-link to="/register" class="link">You do not have an account? \ Sign up</router-link>
+          <router-link to="/registerDoctor" class="link">You do not have an account? \ Sign up</router-link>
         </div>
       </template>
     </pv-card>

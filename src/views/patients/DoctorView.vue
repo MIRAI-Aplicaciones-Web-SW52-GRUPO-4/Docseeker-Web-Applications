@@ -148,8 +148,8 @@ header{
   color: gray;
 }
 .doctorStats{
-  display: grid;
-  grid-template-columns: 1fr 2fr;
+  display: flex;
+  flex-wrap: wrap;
   gap: 3rem;
   margin-top: 2rem
 }
@@ -181,5 +181,10 @@ i{
 .doctorEducation .education{
   font-weight: bolder;
   margin-left: 20px
+}
+@media (max-width: 750px) {
+  .doctorProfile{
+    flex-direction: column;
+  }
 }
 </style>

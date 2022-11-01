@@ -1,4 +1,4 @@
-<template>
+<!--<template>
   <h1>Change Of Password</h1>
 
   <div id="changePasswordForm">
@@ -33,7 +33,7 @@
 </template>
 
 <script>
-import { UsersApiService } from "@/learning/services/tutorials-api.services";
+import {UsersApiService} from "../learning/services/users-api.services";
 
 export default {
   name: "ChangePassword.vue",
@@ -138,4 +138,4 @@ export default {
 #inputTextIcon {
   border-right: none;
 }
-</style>
+</style> -->

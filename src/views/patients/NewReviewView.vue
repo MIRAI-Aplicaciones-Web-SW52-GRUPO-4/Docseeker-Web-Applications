@@ -4,7 +4,7 @@
     <router-link :to="{name: 'doctorReviews', params: {id: $route.params.id}}"><i class="pi pi-angle-left" style="font-size: 200%"></i></router-link>
     <h1>New Review</h1>
   </div>
-
+<div class="newReviewContainer">
   <h1>{{doctor.area}}</h1>
   <hr class="separatorLine">
   <h2>Dr. {{doctor.name}}</h2>
@@ -29,6 +29,7 @@
   <div class="button-row">
     <router-link :to="{name: 'doctorReviews', params: {id: $route.params.id}}"> <pv-button @click="newReview">Publish</pv-button> </router-link>
   </div>
+</div>
 
 </template>
 
@@ -194,5 +195,18 @@ export default {
   display: flex;
   justify-content: center;
   margin: 2% 0;
+}
+
+@media (max-width: 750px){
+  .newReviewContainer{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .averageScore{
+    align-items: center;
+    justify-content: center;
+  }
 }
 </style>

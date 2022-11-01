@@ -120,4 +120,15 @@ p{
 img{
   height: 400px;
 }
+@media (max-width: 750px) {
+  .paymentContainer{
+    flex-direction: column;
+  }
+  .payment{
+    flex-direction: row;
+  }
+  img{
+    height: 200px;
+  }
+}
 </style>

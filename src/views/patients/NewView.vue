@@ -14,7 +14,7 @@
 import MenuBar from "../../components/MenuBar.vue"
 </script>
 <script>
-import {NewsApiService} from "../../learning/services/news-api.services";
+import {NewsApiService} from "../../learning/services/news-api.service";
 
 export default {
   name: "New",
@@ -70,5 +70,6 @@ export default {
 }
 img{
   border-radius: 15px;
+  width: 100%;
 }
 </style>
