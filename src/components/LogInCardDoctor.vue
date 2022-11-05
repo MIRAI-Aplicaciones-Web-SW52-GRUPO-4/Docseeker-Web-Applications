@@ -9,17 +9,20 @@
         <h3>User</h3>
         <div class="inputContainer">
           <label for="dni">DNI Number / CE</label><br>
-          <pv-inputText id="dni" type="number" placeholder="DNI/CE" class="inputBox"/>
+          <pv-inputText id="dni" type="string" placeholder="DNI/CE" class="inputBox"
+                        v-model="dni"/>
         </div>
         <br>
         <h3>Password</h3>
         <div class="inputContainer">
           <label for="password1">Password</label><br>
-          <pv-inputText id="password1" type="password" placeholder="Password" class="inputBox"/>
+          <pv-inputText id="password1" type="password" placeholder="Password" class="inputBox"
+                        v-model="password"/>
         </div>
         <div class="lastPart">
           <br>
-          <router-link to="/dashBoardDoctor"><pv-button class="buttonLogIn" label="Log In" /></router-link><br>
+          <pv-dialog position="top" v-model:visible="tried"  >Incorrect email or password. Please try again.</pv-dialog><br>
+          <pv-button @click="getInto()" class="buttonLogIn" label="Log In" /><br>
           <router-link to="/changePassword" class="link">I forgot my password</router-link><br>
           <router-link to="/registerDoctor" class="link">You do not have an account? \ Sign up</router-link>
         </div>
@@ -29,9 +32,66 @@
 </template>
 
 <script>
+import {DoctorsApiService} from "../learning/services/doctors-api.service";
+import router from "../router";
 
 export default {
-  name: "log-in-card.component"
+  name: "log-in-card.component",
+  data(){
+    return{
+      type: "",
+      patients: [],
+      patient: {},
+      patientsService: null,
+      doctors: [],
+      doctor: {},
+      doctorsService: null,
+      incorrectData: true,
+      tried: false,
+      display: false,
+
+
+
+      dni: "",
+      password: ""
+    }
+  },
+  created() {
+
+  },
+  methods: {
+    getInto(){
+      this.type="doctor";
+
+      if(this.type == "doctor") {
+        this.doctorsService = new DoctorsApiService();
+        this.doctorsService.getAll().then((response) => {
+          this.doctors = response.data;
+
+          for (let x in this.doctors){
+            if(this.doctors[x].DNI == this.dni &&
+                this.doctors[x].password == this.password){
+              this.doctor = this.doctors[x];
+              this.incorrectData = false;
+              break;
+            }
+          }
+          if(this.incorrectData) {
+            this.tried = true;
+          }else {
+            console.log("success")
+            sessionStorage.setItem("UserId", this.doctor.id.toString());
+            router.push('/dashboardDoctor');
+          }
+
+
+        });
+      }else {
+
+      }
+
+    }
+  }
 }
 </script>
 

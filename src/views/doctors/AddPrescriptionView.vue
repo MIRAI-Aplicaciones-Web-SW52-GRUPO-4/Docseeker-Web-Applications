@@ -13,33 +13,63 @@
     import PatientPrescription from "../../components/PatientPrescription.vue"
 </script>
 <script>
- import {useCounterStore} from "../../stores/counter"
-    export default {
+ import {DoctorsApiService} from "../../learning/services/doctors-api.service";
+ import {PatientsApiService} from "../../learning/services/patients-api.service";
+ import {DatesApiService} from "../../learning/services/dates-api.service";
+
+ export default {
     data(){
         return{
-            userId: 0, /* ESTO DEBE SER LA ID DEL USUARIO QUE ESTÉ LOGEADO */
-            dates: useCounterStore().dates,
-            patients: useCounterStore().patients,
-            patientsId: [],
-            patientsOfDoctor: []
+          doctors: [],
+          doctorService: null,
+          doctor: {},
+          dates: [],
+          datesService: null,
+          date: {},
+          patients: [],
+          patientsService: null,
+          patient: {},
+          patientsId: [],
+          patientsOfDoctor: []
+
         }
     },
     created() {
+      this.doctorService = new DoctorsApiService();
+      this.doctorService.getAll().then((response) => {
+        this.doctors = response.data;
+        for (let x in this.doctors){
+          if (this.doctors[x].id.toString() == sessionStorage.getItem("UserId")){
+            this.doctor = this.doctors[x];
+            break;
+          }
+        }
+      });
+      /* OBTENER LISTA DE PACIENTES QUE REALIZARON ALGUNA VEZ UNA CITA CON EL DOCTOR LOGEADO */
 
-    /* OBTENER LISTA DE PACIENTES QUE REALIZARON ALGUNA VEZ UNA CITA CON EL DOCTOR LOGEADO */
-
+      this.datesService = new DatesApiService();
+      this.datesService.getAll().then((response) => {
+        this.dates = response.data;
         for (let x in this.dates){
-            if ((this.dates[x].doctorId == this.userId) && (this.patientsId.indexOf(this.dates[x].idPatient) === -1)){
-                this.patientsId.push(this.dates[x].idPatient)
-            }
+          if ((this.dates[x].doctorId.toString() == sessionStorage.getItem("UserId")) && (this.patientsId.indexOf(this.dates[x].idPatient) === -1)){
+            this.patientsId.push(this.dates[x].idPatient)
+          }
         }
+      });
+
+      this.patientsService = new PatientsApiService();
+      this.patientsService.getAll().then((response) => {
+        this.patients = response.data;
         for (let x in this.patients){
-            for (let y in this.patientsId){
-                if (this.patients[x].id == this.patientsId[y]){
-                    this.patientsOfDoctor.push(this.patients[x])
-                }
+          for (let y in this.patientsId){
+            if (this.patients[x].id == this.patientsId[y]){
+              this.patientsOfDoctor.push(this.patients[x])
             }
+          }
         }
+      });
+
+
     }
 }
 </script>

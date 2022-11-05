@@ -60,30 +60,44 @@
 
 <script>
    import { useCounterStore } from "../../stores/counter";
+   import {DoctorsApiService} from "../../learning/services/doctors-api.service";
+   import {ReviewsApiService} from "../../learning/services/reviews-api.service";
 
 export default {
-    data(){
-        return{
-            userId: 0, /* ID DEL USUARIO LOGEADO */
-            doctor: {},
-            customerReviews: []
+  data(){
+    return{
+      doctors: [],
+      doctorService: null,
+      doctor: {},
+      customerReviews:[],
+      reviews: [],
+      review: {},
+      reviewsService: null
+
+    }
+  },
+  created() {
+    this.doctorService = new DoctorsApiService();
+    this.doctorService.getAll().then((response) => {
+      this.doctors = response.data;
+      for (let x in this.doctors){
+        if (this.doctors[x].id.toString() == sessionStorage.getItem("UserId")){
+          this.doctor = this.doctors[x];
+          break;
         }
-    },
-    created() {
-        for (let x in useCounterStore().doctors){
-            if (useCounterStore().doctors[x].id == this.userId){
-                this.doctor = useCounterStore().doctors[x];
-                break;
-            }
-        }
-    },
-      mounted() {
-        useCounterStore().reviews.forEach(review => {
-          if (review.idDoctor == this.userId){
-            this.customerReviews.push(review)
-          }
-        })
       }
+    });
+    this.reviewsService = new ReviewsApiService();
+    this.reviewsService.getAll().then((response) => {
+      this.reviews = response.data;
+      for (let x in this.reviews){
+        if (this.reviews[x].idDoctor.toString() == sessionStorage.getItem("UserId")){
+          this.customerReviews.push(this.reviews[x]);
+          break;
+        }
+      }
+    });
+  }
 }
 </script>
 

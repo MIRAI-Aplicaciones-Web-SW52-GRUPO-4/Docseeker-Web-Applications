@@ -75,22 +75,28 @@
 
 <script>
     import { useCounterStore } from "../../stores/counter";
+    import {DoctorsApiService} from "../../learning/services/doctors-api.service";
 
 export default {
-    data(){
-        return{
-            userId: 5, /* ID DEL USUARIO LOGEADO */
-            doctor: {}
-        }
-    },
-    created() {
-        for (let x in useCounterStore().doctors){
-            if (useCounterStore().doctors[x].id == this.userId){
-                this.doctor = useCounterStore().doctors[x];
-                break;
-            }
-        }
+  data(){
+    return{
+      doctors: [],
+      doctorService: null,
+      doctor: {}
     }
+  },
+  created() {
+    this.doctorService = new DoctorsApiService();
+    this.doctorService.getAll().then((response) => {
+      this.doctors = response.data;
+      for (let x in this.doctors){
+        if (this.doctors[x].id.toString() == sessionStorage.getItem("UserId")){
+          this.doctor = this.doctors[x];
+          break;
+        }
+      }
+    });
+  }
 }
 </script>
 <style scoped>
