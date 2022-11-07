@@ -64,23 +64,31 @@ import MenuBarDoctor from "../../components/MenuBarDoctor.vue";
 </script>
 
 <script>
+import {DoctorsApiService} from "../../learning/services/doctors-api.service";
+
 import { useCounterStore } from "../../stores/counter";
 
 export default {
   data(){
     return{
-      userId: 0, /* ID DEL USUARIO LOGEADO */
+      doctors: [],
+      doctorService: null,
       doctor: {}
     }
   },
   created() {
-    for (let x in useCounterStore().doctors){
-      if (useCounterStore().doctors[x].id == this.userId){
-        this.doctor = useCounterStore().doctors[x];
-        break;
+    this.doctorService = new DoctorsApiService();
+    this.doctorService.getAll().then((response) => {
+      this.doctors = response.data;
+      for (let x in this.doctors){
+        if (this.doctors[x].id.toString() == sessionStorage.getItem("UserId")){
+          this.doctor = this.doctors[x];
+          break;
+        }
       }
-    }
+    });
   }
+
 }
 </script>
 

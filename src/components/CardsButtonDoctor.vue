@@ -9,6 +9,7 @@
         </div>
       </div>
     </router-link>
+    <!--
     <router-link to="/income">
       <div class="card">
         <img class="appointment_option" src="../assets/images/salary.png">
@@ -18,6 +19,7 @@
         </div>
       </div>
     </router-link>
+    -->
     <router-link to="/appointments">
       <div class="card">
         <img class="appointment_option" src="../assets/images/schedule.png">

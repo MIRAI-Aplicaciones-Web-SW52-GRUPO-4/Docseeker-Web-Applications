@@ -318,8 +318,8 @@ export const useCounterStore = defineStore('counter', () => {
   const doctors = ref([{
     id: 0,
     name: "Jose Miguel",
-    area: "Dentista",
-    description: "Lorem asjkhksjadhkjashdkjhwkjdkdwajk",
+    area: "Dentist",
+    description: "A responsible doctor who always tries to help those who need it.",
     patients: 345,
     years: 25,
     age: 54,

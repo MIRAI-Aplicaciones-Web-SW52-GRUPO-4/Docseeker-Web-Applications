@@ -107,7 +107,7 @@
       "cell1": 987654321,
       "cell2": 917383464,
       "password": "contrasupersecreta",
-      "photo": "https://thumbs.dreamstime.com/b/viejo-hombre-24922470.jpg"
+      "photo": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/Emblem-person-blue.svg/2048px-Emblem-person-blue.svg.png"
     },
     {
       "id": 1,
@@ -119,7 +119,7 @@
       "cell1": "334712124",
       "cell2": "917383464",
       "password": "contrasupersecreta123",
-      "photo": "https://img.freepik.com/fotos-premium/viejo-mirando-camara_23-2148239005.jpg"
+      "photo": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/Emblem-person-blue.svg/2048px-Emblem-person-blue.svg.png"
     },
     {
       "id": 2,
@@ -131,7 +131,7 @@
       "cell1": "987654321",
       "cell2": "917383464",
       "password": "contr124asupersecreta",
-      "photo": "https://s1.eestatic.com/2020/05/11/actualidad/actualidad_489212860_151809095_1024x576.jpg"
+      "photo": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/Emblem-person-blue.svg/2048px-Emblem-person-blue.svg.png"
     },
     {
       "id": 3,
@@ -143,7 +143,7 @@
       "cell1": "345772341",
       "cell2": "94562345",
       "password": "contrahypersupersecreta",
-      "photo": "https://s1.abcstatics.com/media/gente/2021/10/20/ii-kc9B--620x349@abc.jpg"
+      "photo": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/Emblem-person-blue.svg/2048px-Emblem-person-blue.svg.png"
     },
     {
       "id": 4,
@@ -155,7 +155,7 @@
       "cell1": "345623453",
       "cell2": "945671231",
       "password": "passwordupersecreta",
-      "photo": "https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8bWFufGVufDB8fDB8fA%3D%3D&w=1000&q=80"
+      "photo": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/Emblem-person-blue.svg/2048px-Emblem-person-blue.svg.png"
     },
     {
       "id": 5,
@@ -343,7 +343,9 @@
   ],
   "doctors": [
     {
-      "id": 1,
+      "id": 0,
+      "DNI": "9873641",
+      "password": "doctorbest",
       "name": "Jose Miguel",
       "area": "Dentist",
       "description": "A responsible doctor who always tries to help those who need it.",
@@ -351,7 +353,7 @@
       "years": 25,
       "age": 54,
       "cost": 70.23,
-      "photo": "https://media.revistagq.com/photos/5ca5fd6e3492a940f5bf1bf0/1:1/w_511,h_511,c_limit/doctor_mike_gq_5080.jpg",
+      "photo": "https://www.browardhealth.org/-/media/broward-health/placeholder/doctor-placeholder-male.jpg",
       "education": [
         {
           "id": 0,
@@ -391,15 +393,17 @@
       ]
     },
     {
-      "id": 2,
+      "id": 1,
+      "DNI": "736529",
+      "password": "newdoctor291",
       "name": "Nancy Monica",
-      "area": "pediatrician",
+      "area": "Pediatrician",
       "description": "A responsible doctor who always tries to help those who need it.",
       "patients": 45,
       "years": 15,
       "age": 70,
       "cost": 700,
-      "photo": "https://upload.wikimedia.org/wikipedia/en/thumb/5/53/Greys-Anatomy-Season-7-Promo-9.jpg/220px-Greys-Anatomy-Season-7-Promo-9.jpg",
+      "photo": "https://www.browardhealth.org/-/media/broward-health/placeholder/doctor-placeholder-male.jpg",
       "education": [
         {
           "id": 0,
@@ -424,7 +428,9 @@
       ]
     },
     {
-      "id": 3,
+      "id": 2,
+      "DNI": "3746167",
+      "password": "luijo847",
       "name": "Jose Luis",
       "area": "Dentist",
       "description": "A responsible doctor who always tries to help those who need it.",
@@ -432,11 +438,11 @@
       "years": 235,
       "age": 64,
       "cost": 21.11,
-      "photo": "https://w7.pngwing.com/pngs/964/394/png-transparent-foreign-doctor-material-doctors-doctor-material-male-doctor.png",
+      "photo": "https://www.browardhealth.org/-/media/broward-health/placeholder/doctor-placeholder-male.jpg",
       "education": [
         {
           "id": 0,
-          "name": "LA CALLE"
+          "name": "ALAS PERUANAS"
         }
       ],
       "hoursAvailable": [
@@ -473,7 +479,9 @@
       ]
     },
     {
-      "id": 4,
+      "id": 3,
+      "DNI": "324561",
+      "password": "miguelitodoctor",
       "name": "Miguel Luis",
       "area": "Psychologist",
       "description": "A responsible doctor who always tries to help those who need it.",
@@ -481,7 +489,7 @@
       "years": 295,
       "age": 13,
       "cost": 10,
-      "photo": "https://e.rpp-noticias.io/xlarge/2022/01/18/120416058c39a2a4f757ee52afc005b78d1c568jpg.jpg",
+      "photo": "https://www.browardhealth.org/-/media/broward-health/placeholder/doctor-placeholder-male.jpg",
       "education": [
         {
           "id": 0,
@@ -511,7 +519,9 @@
       ]
     },
     {
-      "id": 5,
+      "id": 4,
+      "DNI": "789372",
+      "password": "curibaloncesto",
       "name": "Jonatan Mondragon",
       "area": "Plastic Surgeon",
       "description": "A responsible doctor who always tries to help those who need it.",
@@ -519,7 +529,7 @@
       "years": 15,
       "age": 70,
       "cost": 123.23,
-      "photo": "https://i.pinimg.com/564x/2d/c8/04/2dc80483d6f565e49466bbce009fcff3.jpg",
+      "photo": "https://www.browardhealth.org/-/media/broward-health/placeholder/doctor-placeholder-male.jpg",
       "education": [
         {
           "id": 0,
@@ -625,7 +635,7 @@
       "customerReview": "This was a nice attention",
       "customerScore": 3,
       "idUser": 2,
-      "idDoctor": 5
+      "idDoctor": 4
     },
     {
       "id": 8,
@@ -976,6 +986,105 @@
         "8:00 AM",
         "3:00 PM",
         "8:00 PM"
+      ]
+    }
+  ],
+  "medicalHistory": [
+    {
+      "id": 0,
+      "idPatient": 1,
+      "historial": [
+        {
+          "id": 0,
+          "date": "20/10/2022",
+          "content": "Show evidence of headache"
+        },
+        {
+          "id": 1,
+          "date": "21/10/2022",
+          "content": "Show evidence of backache"
+        },
+        {
+          "id": 2,
+          "date": "22/10/2022",
+          "content": "Show evidence of stomache"
+        }
+
+      ]
+    },
+    {
+      "id": 1,
+      "idPatient": 0,
+      "historial": [
+        {
+          "id": 0,
+          "date": "24/10/2022",
+          "content": "Show evidence of headache"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "idPatient": 2,
+      "historial": [
+        {
+          "id": 0,
+          "date": "20/10/2022",
+          "content": "Show evidence of headache"
+        },
+        {
+          "id": 1,
+          "date": "21/10/2022",
+          "content": "Show evidence of backache"
+        },
+        {
+          "id": 2,
+          "date": "22/10/2022",
+          "content": "Show evidence of stomache"
+        },
+        {
+          "id": 3,
+          "date": "23/10/2022",
+          "content": "Show evidence of alzheimer"
+        },
+        {
+          "id": 4,
+          "date": "24/10/2022",
+          "content": "Show evidence of bad alimentation"
+        }
+
+      ]
+    },
+    {
+      "id": 3,
+      "idPatient": 3,
+      "historial": [
+        {
+          "id": 0,
+          "date": "20/10/2022",
+          "content": "Show evidence of headache"
+        },
+        {
+          "id": 1,
+          "date": "21/10/2022",
+          "content": "Show evidence of bad alimentation"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "idPatient": 4,
+      "historial": [
+        {
+          "id": 0,
+          "date": "20/10/2022",
+          "content": "Show evidence of alzheimer"
+        },
+        {
+          "id": 1,
+          "date": "24/10/2022",
+          "content": "Show evidence of backache"
+        }
       ]
     }
   ]

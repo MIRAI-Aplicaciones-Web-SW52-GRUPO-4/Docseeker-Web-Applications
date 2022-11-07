@@ -67,7 +67,7 @@
 
   import MenuBar from "../../components/MenuBar.vue";
 
-  const profilePhotoURL = "src/assets/images/User profile photo.jpg";
+  const profilePhotoURL = "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/Emblem-person-blue.svg/2048px-Emblem-person-blue.svg.png";
 
 </script>
 

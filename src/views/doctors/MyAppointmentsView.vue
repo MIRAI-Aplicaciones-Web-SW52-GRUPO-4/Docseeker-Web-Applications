@@ -13,14 +13,24 @@ import MenuBarDoctor from "../../components/MenuBarDoctor.vue"
 import PatientAppointment from "../../components/PatientAppointment.vue"
 </script>
 <script>
-import {useCounterStore} from "../../stores/counter"
+import {DoctorsApiService} from "../../learning/services/doctors-api.service";
+import {PatientsApiService} from "../../learning/services/patients-api.service";
+import {DatesApiService} from "../../learning/services/dates-api.service";
+
 export default {
   data(){
     return{
-      userId: 0, /* ESTO DEBE SER LA ID DEL USUARIO QUE ESTÉ LOGEADO */
+      doctors: [],
+      doctorService: null,
       doctor: {},
-      dates: useCounterStore().dates,
-      patients: useCounterStore().patients,
+      dates: [],
+      datesService: null,
+      date: {},
+      patients: [],
+      patientsService: null,
+      patient: {},
+
+
       datesOfDoctor: [],
       patientsOfDoctor: [],
       hoursOfDoctor: []
@@ -28,42 +38,58 @@ export default {
   },
   created() {
     /* OBTENER DOCTOR LOGEADO */
-    for (let x in useCounterStore().doctors){
-      if (useCounterStore().doctors[x].id == this.userId){
-        this.doctor = useCounterStore().doctors[x];
-        break;
+    this.doctorService = new DoctorsApiService();
+    this.doctorService.getAll().then((response) => {
+      this.doctors = response.data;
+      for (let x in this.doctors){
+        if (this.doctors[x].id.toString() == sessionStorage.getItem("UserId")){
+          this.doctor = this.doctors[x];
+          break;
+        }
       }
-    }
+    });
+
     /* OBTENER LISTA DE PACIENTES QUE REALIZARON ALGUNA VEZ UNA CITA CON EL DOCTOR LOGEADO */
-    for (let x in this.dates){
-      if ((this.dates[x].doctorId == this.userId)){
-        this.datesOfDoctor.push(this.dates[x])
+    this.datesService = new DatesApiService();
+    this.datesService.getAll().then((response) => {
+      this.dates = response.data;
+      for (let x in this.dates){
+        if (this.dates[x].doctorId.toString() == sessionStorage.getItem("UserId")){
+          this.datesOfDoctor.push(this.dates[x])
+        }
       }
-    }
+    });
 
     /* OBTENIENDO LA HORA DE LA CITA */
     for (let x in this.datesOfDoctor){
       for (let y in this.doctor.hoursAvailable){
         if ((this.datesOfDoctor[x].hourId == this.doctor.hoursAvailable[y].id))
+          /* ESTO DEBE CAMBIARSE CON UN EDIT EN EL BACKEND*/
           Object.defineProperty(this.datesOfDoctor[x], 'hour', {
             value: this.doctor.hoursAvailable[y].hours,
             writable: false
           });
       }
     }
+
     /* CREANDO ARREGLO CON TODA LA INFO QUE SE NECESITA DE CADA CITA */
-    for (let x in this.patients){
-      for (let y in this.datesOfDoctor){
-        if (this.patients[x].id == this.datesOfDoctor[y].idPatient){
-          this.patientsOfDoctor.push({
-            name: this.patients[x].name,
-            photo: this.patients[x].photo,
-            date: this.datesOfDoctor[y].date,
-            hour: this.datesOfDoctor[y].hour,
-          })
+    this.patientsService = new PatientsApiService();
+    this.patientsService.getAll().then((response) => {
+      this.patients = response.data;
+      for (let x in this.patients){
+        for (let y in this.datesOfDoctor){
+          if (this.patients[x].id == this.datesOfDoctor[y].idPatient){
+            this.patientsOfDoctor.push({
+              name: this.patients[x].name,
+              photo: this.patients[x].photo,
+              date: this.datesOfDoctor[y].date,
+              hour: this.datesOfDoctor[y].hour,
+            })
+          }
         }
       }
-    }
+    });
+
   }
 }
 </script>
