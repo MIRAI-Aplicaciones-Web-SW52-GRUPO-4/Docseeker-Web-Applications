@@ -69,7 +69,7 @@ export default {
           this.patients = response.data;
 
           for (let x in this.patients){
-            if(this.patients[x].DNI == this.dni &&
+            if(this.patients[x].dni == this.dni &&
                 this.patients[x].password == this.password){
               this.patient = this.patients[x];
               this.incorrectData = false;
