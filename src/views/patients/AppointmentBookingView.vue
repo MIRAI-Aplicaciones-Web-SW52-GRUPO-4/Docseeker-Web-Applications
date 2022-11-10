@@ -22,6 +22,7 @@ import HourAvailable from "../../components/HourAvailable.vue"
 <script>
 import {DoctorsApiService} from "../../learning/services/doctors-api.service";
 import {DatesApiService} from "../../learning/services/dates-api.service";
+import {HoursApiService} from "../../learning/services/hours-api.service";
 
 export default {
   data() {
@@ -30,8 +31,11 @@ export default {
       doctor: {},
       dates: [],
       date: {},
+      hoursAvailable: [],
+      hourAvailable: {},
       doctorsService: null,
       datesService: null,
+      hoursService: null,
 
       hour: 0
 
