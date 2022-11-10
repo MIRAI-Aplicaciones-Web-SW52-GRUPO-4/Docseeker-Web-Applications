@@ -80,9 +80,9 @@ export default {
         for (let y in this.datesOfDoctor){
           if (this.patients[x].id == this.datesOfDoctor[y].idPatient){
             this.patientsOfDoctor.push({
-              name: this.patients[x].name,
+              name: this.patients[x].firstName,
               photo: this.patients[x].photo,
-              date: this.datesOfDoctor[y].date,
+              date: this.datesOfDoctor[y].cDate,
               hour: this.datesOfDoctor[y].hour,
             })
           }
