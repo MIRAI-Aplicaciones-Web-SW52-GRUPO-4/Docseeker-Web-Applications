@@ -1,12 +1,11 @@
 <template>
   <div class="backButton">
     <MenuBar></MenuBar>
-    <router-link :to="{name: 'appointmentCalendar', params: {id: $route.params.id}}"><i class="pi pi-angle-left" style="font-size: 200%"></i></router-link>
     <h1>Book your appointment</h1>
   </div>
   <h2 class="title">These are all hours available for {{$route.params.date}}</h2>
 
-  <HourAvailable @click="schedule(), hour = available.hours" v-model="hour" v-for="available in doctor.hoursAvailable" :date=$route.params.date :hour=available.hours
+  <HourAvailable @click="schedule(), hour = available.hours" v-model="hour" v-for="available in hoursAvailable" :date=$route.params.date :hour=available.hours
                  :name=doctor.name :area=doctor.area :cost=doctor.cost :doctorId=doctor.id :hourId=available.id
                  v-show="!available.booked"/>
 
@@ -54,11 +53,16 @@ export default {
       }
     });
 
+    this.hoursService = new HoursApiService();
+    this.hoursService.getAll().then((response) => {
+      this.hoursAvailable = response.data;
+    });
+
+
     this.datesService = new DatesApiService();
     this.datesService.getAll().then((response) => {
       this.dates = response.data;
     });
-
   },
   methods: {
     schedule() {
@@ -66,17 +70,24 @@ export default {
         id: this.dates.length,
         idPatient: sessionStorage.getItem("UserId"),
         doctorId: this.doctor.id,
-        date: this.$route.params.date,
-        hourId: this.hour
+        cDate: this.$route.params.date,
+        //hourId: this.hour
       }
 
-      for (let x in this.doctor.hoursAvailable){
-        if(this.doctor.hoursAvailable[x].id == this.hour) {
-          this.doctor.hoursAvailable[x].booked = true;
+      for (let x in this.hoursAvailable){
+        if(this.hoursAvailable[x].doctorId == this.doctor.id && this.hoursAvailable[x].hours == this.hour) {
+          console.log("AEAAAAA");
+          this.hoursAvailable[x].booked = true;
+          this.hourAvailable = {
+            hours: this.hoursAvailable[x].hours,
+            booked: this.hoursAvailable[x].booked,
+            doctorId: this.hoursAvailable[x].doctorId,
+          }
+          this.hoursService.update(this.hoursAvailable[x].id, this.hoursAvailable[x]);
         }
       }
 
-      this.doctorsService.update(this.doctor.id, JSON.stringify(this.doctor));
+
 
       this.datesService.create(JSON.stringify(this.date));
     }
