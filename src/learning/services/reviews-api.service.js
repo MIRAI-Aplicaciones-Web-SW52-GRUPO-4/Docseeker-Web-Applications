@@ -2,18 +2,18 @@ import http from '../../core/services/http-common';
 
 export class ReviewsApiService {
     getAll() {
-        return http.get('/reviews');
+        return http.get('/review');
     }
     getById(id) {
-        return http.get(`/reviews/${id}`);
+        return http.get(`/review/${id}`);
     }
     create(data) {
-        return http.post('/reviews', data);
+        return http.post('/review', data);
     }
     update(id, data) {
-        return http.put(`/reviews/${id}`, data);
+        return http.put(`/review/${id}`, data);
     }
     delete(id) {
-        return http.delete(`/reviews/${id}`);
+        return http.delete(`/review/${id}`);
     }
 }

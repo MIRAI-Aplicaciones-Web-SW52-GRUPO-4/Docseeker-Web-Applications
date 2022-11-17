@@ -7,7 +7,7 @@
 <div class="newReviewContainer">
   <h1>{{doctor.area}}</h1>
   <hr class="separatorLine">
-  <h2>Dr. {{doctor.name}}</h2>
+  <h2>Dr. {{doctor.firstName}}</h2>
 
   <div class="row">
     <h1>Stars</h1>
@@ -80,6 +80,8 @@ export default {
       }
     });
 
+
+
     this.patientsService = new PatientsApiService();
     this.patientsService.getAll().then((response) => {
       this.patients = response.data;
@@ -92,6 +94,7 @@ export default {
         }
       }
     });
+    console.log(this.doctor.area);
 
     this.reviewsService = new ReviewsApiService();
     this.reviewsService.getAll().then((response) => {
@@ -103,12 +106,16 @@ export default {
       this.review = {
         id: this.reviews.length,
         profilePhotoUrl: this.patient.photo,
-        customerName: this.patient.name,
+        customerName: this.patient.firstName,
         customerReview: this.text,
         customerScore: this.stars,
-        idUser: this.patient.id,
+        idPatient: this.patient.id,
         idDoctor: this.doctor.id
       }
+
+      console.log(this.patient.id);
+      console.log(this.doctor.id);
+
 
       this.reviewsService.create(JSON.stringify(this.review));
 
