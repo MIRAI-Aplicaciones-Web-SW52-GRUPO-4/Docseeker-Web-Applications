@@ -8,12 +8,15 @@
         <span class="p-inputgroup-addon">
             <i class="pi pi-search"></i>
         </span>
-      <pv-inputText placeholder="Search Doctor" />
+      <pv-inputText placeholder="Search Doctor" v-model="input"/>
     </div>
   </header>
-  <DoctorButton v-for="doctor in doctors" :name="doctor.name" :area="doctor.area" :description="doctor.description"
+  <DoctorButton v-for="doctor in filteredList()" :name="doctor.name" :area="doctor.area" :description="doctor.description"
                 :doctor="doctor" photo="https://findicons.com/files/icons/1773/free/256/person.png" ></DoctorButton>
-</template>
+  <div class="error" v-if="input&&!filteredList().length">
+    <p><i class="pi pi-exclamation-circle
+"></i> No results found!</p>
+  </div>
 
 <script setup>
 
@@ -30,7 +33,8 @@ export default {
       imgUrl: null,
       doctors: [],
       doctorsService: null,
-      doctor: {}
+      doctor: {},
+      input: ""
     }
   },
   created() {
@@ -45,12 +49,15 @@ export default {
   methods: {
     getDisplayableTutorial(doc) {
       return doc;
+    },
+    filteredList() {
+      return this.doctors.filter((doctor) =>
+          doctor.name.toLowerCase().includes(this.input.toLowerCase())
+      );
     }
   }
 }
 
-/*import { useCounterStore } from "../../stores/counter";
-const doctors = useCounterStore().doctors;*/
 </script>
 
 <style scoped>
@@ -69,5 +76,17 @@ header{
 }
 .title{
   font-weight: bolder;
+}
+.error{
+  display: flex;
+  height: 80vh;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 3rem;
+}
+.error p i{
+  font-size: 4rem;
+  color: darkred;
 }
 </style>

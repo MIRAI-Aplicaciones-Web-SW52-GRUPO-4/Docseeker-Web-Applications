@@ -8,11 +8,11 @@
             <span class="p-inputgroup-addon">
                 <i class="pi pi-search"></i>
             </span>
-      <pv-inputText placeholder="Search News" />
+      <pv-inputText placeholder="Search News" v-model="input"/>
     </div>
   </div>
   <div class="cardsContainer">
-    <pv-card class="card" v-for="newCard in news">
+    <pv-card class="card" v-for="newCard in filteredList()">
       <template #header>
         <router-link :to="{ name: 'new', params: {id: newCard.id}}">
           <img alt="image" :src="newCard.image">
@@ -29,12 +29,14 @@
       </template>
     </pv-card>
   </div>
+  <div class="error" v-if="input&&!filteredList().length">
+    <p><i class="pi pi-exclamation-circle
+"></i> No results found!</p>
+  </div>
 </template>
 <script setup>
 import MenuBar from '../../components/MenuBar.vue';
-/*import { useCounterStore } from "../../stores/counter";
-const news = useCounterStore().news;
-console.log(news)*/
+
 </script>
 
 <script>
@@ -47,6 +49,7 @@ export default {
       news: [],
       newsService: null,
       new: {},
+      input: ""
     };
   },
   created(){
@@ -61,6 +64,11 @@ export default {
   methods: {
     getDisplayableTutorial(newss) {
       return newss;
+    },
+    filteredList() {
+      return this.news.filter((_new) =>
+          _new.title.toLowerCase().includes(this.input.toLowerCase())
+      );
     }
   }
 }
@@ -96,5 +104,19 @@ img{
 }
 .p-inputgroup{
   width: 20vw;
+}
+
+
+.error{
+  display: flex;
+  height: 80vh;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 3rem;
+}
+.error p i{
+  font-size: 4rem;
+  color: darkred;
 }
 </style>
