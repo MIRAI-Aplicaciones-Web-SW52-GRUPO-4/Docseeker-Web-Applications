@@ -2,18 +2,18 @@ import http from '../../core/services/http-common';
 
 export class MedicalApiService {
     getAll() {
-        return http.get('/medicalInformation');
+        return http.get('/medicalinformation');
     }
     getById(id) {
-        return http.get(`/medicalInformation/${id}`);
+        return http.get(`/medicalinformation/${id}`);
     }
     create(data) {
-        return http.post('/medicalInformation', data);
+        return http.post('/medicalinformation', data);
     }
     update(id, data) {
-        return http.put(`/medicalInformation/${id}`, data);
+        return http.put(`/medicalinformation/${id}`, data);
     }
     delete(id) {
-        return http.delete(`/medicalInformation/${id}`);
+        return http.delete(`/medicalinformation/${id}`);
     }
 }
