@@ -29,20 +29,20 @@
       <div class="allergies">
         <h2>Allergies</h2>
         <ul>
-          <li v-for="allergy in medicalHistory.allergies"><h3>{{allergy.allergie}}</h3></li>
+          <li v-for="allergy in allergies"><h3>{{allergy}}</h3></li>
         </ul>
       </div>
-      <div class="errorAllergie" v-show="!medicalHistory.allergies.length">
+      <div class="errorAllergie" v-show="!allergies.length">
         <i class="pi pi-check"></i>
         <p>You don't have any allergy</p>
       </div>
       <div class="pathological">
         <h2>Pathological History</h2>
         <ul>
-          <li v-for="pathological in medicalHistory.pathologicals"><h3>{{pathological.pathological}}</h3></li>
+          <li v-for="pathological in pathologicals"><h3>{{pathological}}</h3></li>
         </ul>
       </div>
-      <div class="errorAllergie" v-show="!medicalHistory.pathologicals.length">
+      <div class="errorAllergie" v-show="!pathologicals.length">
         <i class="pi pi-check"></i>
         <p>You don't have any pathological</p>
       </div>
@@ -66,7 +66,9 @@ export default {
       patientsService: null,
       medicalHistories: [],
       medicalHistory: {},
-      medicalHistoriesService: null
+      medicalHistoriesService: null,
+      allergies: [],
+      pathologicals: []
     }
   },
   created(){
@@ -87,6 +89,9 @@ export default {
       for(let x in this.medicalHistories) {
         if(this.medicalHistories[x].idPatient.toString() == sessionStorage.getItem("UserId")){
           this.medicalHistory = this.medicalHistories[x];
+          this.allergies = this.medicalHistory.allergy.split(',');
+          this.pathologicals = this.medicalHistory.pathological.split(',');
+
           break;
         } else{
           this.medicalHistory = null;
