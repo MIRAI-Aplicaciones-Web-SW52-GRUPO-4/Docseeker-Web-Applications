@@ -2,7 +2,7 @@
   <div class="doctor">
     <img :src="doctor.photo" alt="doctor image" class="doctorImg">
     <div class="info">
-      <h3 class="doctorName">{{ doctor.name }}</h3>
+      <h3 class="doctorName">{{doctor.firstName + " " + doctor.lastName}}</h3>
       <div class="infoContainer">
         <div class="aboutContainer">
           <h3 class="doctorArea">{{ doctor.area }}</h3>

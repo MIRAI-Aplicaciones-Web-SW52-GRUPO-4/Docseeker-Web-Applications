@@ -2,14 +2,14 @@
   <div class="backButton">
     <MenuBarDoctor></MenuBarDoctor>
     <router-link to="/addPrescription"><i class="pi pi-angle-left" style="font-size: 200%"></i></router-link>
-    <h1>New prescription for {{patient.name}}</h1>
+    <h1>New prescription for {{patient.firstName + " " + patient.lastName}}</h1>
   </div>
-  <h3>Register a new prescription for {{patient.name}}.</h3>
+  <h3>Register a new prescription for {{patient.firstName}}.</h3>
   <div class="prescription">
     <div class="containerInfo">
       <img :src="patient.photo" alt="patient image" class="patientImg">
       <div class="info">
-        <h3>Name: {{patient.name}}</h3>
+        <h3>Name: {{patient.firstName}}</h3>
         <h3>Genre: {{patient.genre}}</h3>
       </div>
     </div>

@@ -17,7 +17,7 @@
     <p><i class="pi pi-exclamation-circle
 "></i> No results found!</p>
   </div>
-
+  </template>
 <script setup>
 
 import DoctorButton from "../../components/DoctorButton.vue";

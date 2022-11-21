@@ -2,16 +2,16 @@ import http from '../../core/services/http-common';
 
 export class PrescriptionsApiService {
     getAll() {
-        return http.get('/prescriptions');
+        return http.get('/prescription');
     }
     getById(id) {
-        return http.get(`/prescriptions/${id}`);
+        return http.get(`/prescription/${id}`);
     }
     create(data) {
         return http.post('/prescriptions', data);
     }
     update(id, data) {
-        return http.put(`/prescriptions/${id}`, data);
+        return http.put(`/prescription/${id}`, data);
     }
     delete(id) {
         return http.delete(`/prescriptions/${id}`);

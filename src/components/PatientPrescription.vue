@@ -3,7 +3,7 @@
     <div class="patient">
       <img :src= "patient.photo" alt="patient image" class="patientImg">
       <div class="info">
-        <h3 class="patientName">For {{ patient.name }}</h3>
+        <h3 class="patientName">For {{patient.firstName + " " + patient.lastName}}</h3>
       </div>
     </div>
   </router-link>

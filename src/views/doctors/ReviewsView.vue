@@ -11,7 +11,7 @@
     </div>
 
     <div class="info">
-      <h1 class="doctorName name">Dr. {{doctor.name}}</h1>
+      <h1 class="doctorName name">Dr. {{doctor.firstName + " " + doctor.lastName}}</h1>
       <h2 class="speciality">{{doctor.area}}</h2>
     </div>
 
