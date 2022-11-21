@@ -8,12 +8,12 @@ export class PrescriptionsApiService {
         return http.get(`/prescription/${id}`);
     }
     create(data) {
-        return http.post('/prescriptions', data);
+        return http.post('/prescription', data);
     }
     update(id, data) {
         return http.put(`/prescription/${id}`, data);
     }
     delete(id) {
-        return http.delete(`/prescriptions/${id}`);
+        return http.delete(`/prescription/${id}`);
     }
 }

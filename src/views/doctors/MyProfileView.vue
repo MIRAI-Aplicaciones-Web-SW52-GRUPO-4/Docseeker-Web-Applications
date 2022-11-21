@@ -10,7 +10,7 @@
       </div>
 
       <div class="userData">
-        <h1 class="title">{{doctor.name}}</h1>
+        <h1 class="title">{{doctor.firstName + " " + doctor.lastName}}</h1>
 
         <div class="dataField">
           <h3 class="gray">{{doctor.area}}</h3>

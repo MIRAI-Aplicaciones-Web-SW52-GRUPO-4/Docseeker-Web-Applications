@@ -81,6 +81,9 @@ export default {
     return{
       patient: {},
       doctor: {},
+      newMedicines: String,
+      newMeals: String,
+      newHours: String,
       userId: 0 /* ESTE DEBE SER EL ID DEL USUARIO LOGEADO */
     }
   },
@@ -125,7 +128,19 @@ export default {
       }
     },
     newPrescription(){
-      this.separatingArrays()
+      this.separatingArrays();
+      this.newMedicines = "";
+      for(let i = 0; i< this.medicines.length; i++){
+        this.newMedicines+=this.medicines[i] + ",";
+      }
+      this.newMeals = "";
+      for(let i = 0; i< this.mealsIndicator.length; i++){
+        this.newMeals+=this.mealsIndicator[i] + ",";
+      }
+      this.newHours = "";
+      for(let i = 0; i< this.hoursDose.length; i++){
+        this.newHours+=this.hoursDose[i] + ",";
+      }
       useCounterStore().prescriptions.push(
           {
             id: useCounterStore().prescriptions.length,
@@ -138,10 +153,10 @@ export default {
             rest: ` ${this.restRoutine}`,
             drink: ` ${this.drinkRoutine}`,
             food: ` ${this.mealsRoutine}`,
-            medicines: this.medicines,
+            medicines: this.newMedicines,
             numberDose: this.numberDose,
-            meals: this.mealsIndicator,
-            hours: this.hoursDose
+            meals: this.newMeals,
+            hours: this.newHours
           }
       )
       this.$router.push({name: 'addPrescription'})

@@ -17,17 +17,17 @@
     <div class="tips">
       <div class="container tip medicine">
         <h2 class="title">Medicine</h2>
-        <p v-for="medicine in prescription.medicines">{{medicine.medicine}}</p>
+        <p v-for="medicine in medicines">{{medicine}}</p>
       </div>
       <div class="container tip dose">
         <h2 >Dose</h2>
         <p><span class="numberDose">{{prescription.numberDose}}</span> Reminders</p>
         <div class="times">
           <div class="meal">
-            <p v-for="meal in prescription.meals">{{meal}}</p>
+            <p v-for="meal in meals">{{meal}}</p>
           </div>
           <div class="hour">
-            <p v-for="hour in prescription.hours">{{hour}}</p>
+            <p v-for="hour in hours">{{hour}}</p>
           </div>
         </div>
       </div>
@@ -54,6 +54,9 @@ export default {
       prescription: {},
       prescriptions: [],
       prescriptionsService: null,
+      meals: [],
+      hours: [],
+      medicines: []
     }
   },
   created(){
@@ -64,6 +67,9 @@ export default {
       for (let x in this.prescriptions){
         if (this.prescriptions[x].id == this.$route.params.id){
           this.prescription = this.prescriptions[x];
+          this.meals = this.prescription.meals.split(',');
+          this.hours = this.prescription.hours.split(',');
+          this.medicines = this.prescription.medicines.split(',');
           break;
         }
       }

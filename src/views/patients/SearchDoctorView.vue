@@ -11,7 +11,7 @@
       <pv-inputText placeholder="Search Doctor" v-model="input"/>
     </div>
   </header>
-  <DoctorButton v-for="doctor in filteredList()" :name="doctor.name" :area="doctor.area" :description="doctor.description"
+  <DoctorButton v-for="doctor in filteredList()" :name="doctor.firstName" :area="doctor.area" :description="doctor.description"
                 :doctor="doctor" photo="https://findicons.com/files/icons/1773/free/256/person.png" ></DoctorButton>
   <div class="error" v-if="input&&!filteredList().length">
     <p><i class="pi pi-exclamation-circle
@@ -52,7 +52,8 @@ export default {
     },
     filteredList() {
       return this.doctors.filter((doctor) =>
-          doctor.name.toLowerCase().includes(this.input.toLowerCase())
+          doctor.firstName.toLowerCase().includes(this.input.toLowerCase()) ||
+          doctor.lastName.toLowerCase().includes(this.input.toLowerCase())
       );
     }
   }
